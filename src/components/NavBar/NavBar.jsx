@@ -36,6 +36,7 @@ function NavBar({user, setUser}) {
 <div className="navbar-end">
     <div>
       <Link to={`/users/logout`} className="link-secondary tab tab-lg tab-lifted mx-4" onClick={handleLogout}>Log Out</Link>
+      {/* only display when user login */}
     </div>
   <div className="dropdown dropdown-end">
     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

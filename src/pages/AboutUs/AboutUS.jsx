@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function AboutUS() {
+function AboutUs() {
     return (
         <div>
             <h1 data-theme="cupcake">A Perfect Pawcation for our Paw Buddies </h1>
@@ -12,4 +12,4 @@ function AboutUS() {
     );
 }
 
-export default AboutUS;
+export default AboutUs;
