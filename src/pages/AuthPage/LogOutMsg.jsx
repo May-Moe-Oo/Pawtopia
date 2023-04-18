@@ -12,3 +12,4 @@ function LogOutMsg({setUser}) {
 }
 
 export default LogOutMsg;
+

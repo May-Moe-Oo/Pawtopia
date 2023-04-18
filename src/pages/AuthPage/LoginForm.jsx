@@ -28,6 +28,8 @@ function LoginForm({setUser}) {
         setUser(getUser())
         setError("");
         window.alert("Account has login successfully."); 
+        console.log("Login successfully.");
+        console.log(JSON.stringify(data));
         navigate('/');
        } else {
         setError(data.message);
