@@ -6,7 +6,7 @@
   "scripts": {
     "express": "node server.js",
     "react": "vite",
-    "build": "vite build && tailwindcss -i ./src/index.css -o ./dist/output.css",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
