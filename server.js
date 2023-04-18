@@ -3,7 +3,7 @@ const path = require("path");
 const logger = require("morgan");
 require("dotenv").config();
 const database = require("./config/database");
-database.connect();
+// database.connect();
 
 const userRouter = require("./routes/usersRouter");
 //! add other routers here

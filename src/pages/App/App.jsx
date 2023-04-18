@@ -7,8 +7,8 @@ import './App.css'
 import HomePage from "../HomePage/HomePage";
 import AboutUs from "../AboutUs/AboutUs";
 import ContactUs from "../ContactUs/ContactUs";
-import SignUpFrom from "../AuthPage/SignUpFrom";
-import Login from "../AuthPage/Login";
+import SignUpForm from "../AuthPage/SignUpForm";
+import LoginForm from "../AuthPage/LoginForm";
 import LogOutMsg from "../AuthPage/LogOutMsg";
 import AccessDeniedMsg from "../../components/AccessDeniedMsg/AccessDeniedMsg";
 import PageNotFound from "../../components/PageNotFound/PageNotFound";
@@ -19,7 +19,7 @@ function App() {
   return (
       <div className='App'>
       <div className='NavBar'>
-      <NavBar />
+      <NavBar user={user} setUser={setUser} />
       </div>
       <div className='Routes'>
       <Routes>
@@ -27,8 +27,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/users/signup" element={<SignUpFrom />} />
-        <Route path="/users/login" element={<Login setUser={setUser} />} />
+        <Route path="/users/signup" element={<SignUpForm setUser={setUser} />} />
+        <Route path="/users/login" element={<LoginForm setUser={setUser} />} />
         <Route path="/users/logout" element={<LogOutMsg />} />
         {/* <Route path="/Pets/new" element={user && user.userRole == "customer" ? <Pets user={user} /> : <AccessDeniedMsg />} />  */}
       </Routes>

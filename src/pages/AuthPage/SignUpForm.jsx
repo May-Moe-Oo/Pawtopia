@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from "react";
+import { getUser, signUp } from "../../utilities/users-service";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function SignUpFrom() {
+function SignUpForm({ setUser }) {
+  const navigate = useNavigate();
    const [state, setState] = useState({
     name: "",
     email: "",
@@ -12,8 +14,6 @@ function SignUpFrom() {
     userRole: "user",
   });
   const [error, setError] = useState("");
-  const navigate = useNavigate();
-
   const disable = state.password !== state.confirm;
 
   const handleSubmit = (event) => {
@@ -33,7 +33,7 @@ function SignUpFrom() {
     })
       .then((response) => response.json())
       .then((data) => console.log( data ));
-      console.log("submitted");
+      console.log("Sign up is submitted");
       navigate('/users/login');
   };
 
@@ -44,11 +44,12 @@ function SignUpFrom() {
     });
     console.log(state);
   };
+
     return (
       <form onSubmit={handleSubmit} className="card w-full max-w-xl bg-base-100 shadow-xl mx-20">
         <div className="w-full max-w-xl shadow-2xl bg-base-100">
         <div className="hero-content flex-col lg:flex">
-            <h1 className="card-title text-5xl font-bold text-gray-1000 mb-5">Register New Account</h1>
+            <h1 className="card-title text-4xl font-bold text-gray-1000 mb-5">Register New Account</h1>
             {error}
             
             <div className="form-control w-full max-w-xs">
@@ -105,9 +106,16 @@ function SignUpFrom() {
                 className="btn btn-secondary">Sign Up</button>
                 <p className="error-message">&nbsp;{state.error}</p>
             </div>
+
+            <div className="text-center lg:text-left">
+              <p className="py-5 px-5"> If you have a registered account, kindly <span className="link-secondary"> <Link to={`/users/login`}> Sign in </Link> </span>  using your email address. 
+              {/* create is a clickable link that lead to login page  */}
+              </p>
+            </div>
+
         </div></div>
       </form>
     );
 }
 
-export default SignUpFrom;
+export default SignUpForm;
