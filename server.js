@@ -11,7 +11,7 @@ const userRouter = require("./routes/usersRouter");
 const jwt = require("jsonwebtoken");
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 app.use(logger("dev"));
 app.use(express.json());
