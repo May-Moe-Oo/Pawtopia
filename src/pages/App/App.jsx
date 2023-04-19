@@ -5,7 +5,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import { getToken, getUser } from "../../utilities/users-service";
 import './App.css'
 import HomePage from "../HomePage/HomePage";
-import AboutUs from "../AboutUs/AboutUs";
+import AboutUs from "../AboutUs/About";
 import ContactUs from "../ContactUs/ContactUs";
 import SignUpForm from "../AuthPage/SignUpForm";
 import LoginForm from "../AuthPage/LoginForm";
