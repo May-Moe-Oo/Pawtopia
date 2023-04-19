@@ -30,7 +30,7 @@ function LoginForm({setUser}) {
         window.alert("Account has login successfully."); 
         console.log("Login successfully.");
         console.log(JSON.stringify(data));
-        navigate('/');
+        navigate('/pets');
        } else {
         setError(data.message);
       }

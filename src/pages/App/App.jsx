@@ -27,17 +27,17 @@ function App() {
       <div className='Routes'>
       <Routes>
         <Route path="/*" element={<PageNotFound />} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage user={user} />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/users/signup" element={<SignUpForm setUser={setUser} />} />
         <Route path="/users/login" element={<LoginForm setUser={setUser} />} />
         <Route path="/users/logout" element={<LogOutMsg />} />
         <Route path="/rooms" element={<Rooms />} />
-        <Route path="/booking" element={<Booking />} />
+        <Route path="/booking" element={<Booking user={user} />} />
         {/* <Route path="/booking" element={user && user.userRole == "user" ? <Booking user={user} /> : <AccessDeniedMsg />} />  */}
-        <Route path="/pets" element={<Pets />} />
-        {/* <Route path="/Pets/new" element={user && user.userRole == "user" ? <Pets user={user} /> : <AccessDeniedMsg />} />  */}
+        <Route path="/pets" element={<Pets user={user} />} />
+        {/* <Route path="/Pets" element={user && user.userRole == "user" ? <Pets user={user} /> : <AccessDeniedMsg />} />  */}
       </Routes>
       </div>
     </div>
