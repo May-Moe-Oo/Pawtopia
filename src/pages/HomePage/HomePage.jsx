@@ -10,12 +10,10 @@ function HomePage() {
 
             <div className="grid h-20 card  place-items-center">
                 <h2>Find your pawfect <span className="link-secondary"> <Link to={`/rooms`}>room! </Link> </span> </h2>
-                {/* link to be added to room! */}
             </div>
 
             <div className="grid h-20 card place-items-center">
                 <h2>Get in Touch with <span className="link-accent"> <Link to={`/contactus`}>Us! </Link> </span></h2>
-                {/* link to be added to Us! */}
                 <h3>If you have any inquiry, feel free to send us your message.</h3>   
             </div>     
         </div>

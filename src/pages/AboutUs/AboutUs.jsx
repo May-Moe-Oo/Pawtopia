@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Daisy from "../../images/Pets/Daisy.jpg"
 
 function AboutUs() {
     return (
-        <div>
-            <h1>A Perfect Pawcation for our Paw Buddies </h1>
-            <h2>Find your pawfect room</h2> {/* room should be link to room page */}
-            <h2>Get in Touch with Us! </h2> {/* Us should be link to contact us page */}
-            <h2>If you have any inquiry, feel free to send us your message.</h2> 
+        <div className="hero min-h-screen bg-base-200 align-items-start">
+            <div className="hero-content flex-col lg:flex-row">
+                <img src={Daisy} alt="Happy" className="max-w-sm rounded-lg shadow-2xl" />
+            <div >
+            <h1 className="text-4xl font-bold">To Reciprocate Their Unconditional Love! </h1> <br />
+            <h2 className="text-4xl py-2">We Make all our Paw Buddies Happy!</h2> <br/>
+            <h2 className="text-4xl py-2">At Pawtopia, we treat every dog as precious baby and our best friend because we know how much they mean to you.</h2> <br/>
+            <h2 className="text-4xl py-2">Pawtopia is a place where hooman can have a peace of mind and enjoy their well deserved holiday knowing their buddies are well taken care of and having a blast as well.</h2><br/>
+            <h2 className="text-3xl py-2"> <span className="link-accent font-bold"> <Link to={`/contactus`}> Contact Us </Link> </span> to find out more </h2> <br/>
+            </div>
+            </div>
         </div>
     );
 }
