@@ -10,9 +10,11 @@ import ContactUs from "../ContactUs/ContactUs";
 import SignUpForm from "../AuthPage/SignUpForm";
 import LoginForm from "../AuthPage/LoginForm";
 import LogOutMsg from "../AuthPage/LogOutMsg";
+import UserProfile from "../AuthPage/UserProfile";
 import Rooms from "../Rooms/RoomsAvil";
 import Booking from "../Booking/Booking";
 import Pets from "../Pets/Pets"
+import PetsCreateForm from "../Pets/PetsCreateForm";
 import AccessDeniedMsg from "../../components/AccessDeniedMsg/AccessDeniedMsg";
 import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
@@ -33,10 +35,12 @@ function App() {
         <Route path="/users/signup" element={<SignUpForm setUser={setUser} />} />
         <Route path="/users/login" element={<LoginForm setUser={setUser} />} />
         <Route path="/users/logout" element={<LogOutMsg />} />
+        <Route path="/users/profile" element={<UserProfile user={user}/>} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/booking" element={<Booking user={user} />} />
         {/* <Route path="/booking" element={user && user.userRole == "user" ? <Booking user={user} /> : <AccessDeniedMsg />} />  */}
-        <Route path="/pets" element={<Pets user={user} />} />
+        <Route path="/users/pets" element={<Pets user={user} setUser={setUser}/>} />
+        <Route path="/users/pets/new" element={<PetsCreateForm user={user} setUser={setUser}/>} />
         {/* <Route path="/Pets" element={user && user.userRole == "user" ? <Pets user={user} /> : <AccessDeniedMsg />} />  */}
       </Routes>
       </div>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getUser, signUp } from "../../utilities/users-service";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+// import PhoneInput from 'react-phone-number-input'
 
 function SignUpForm({ setUser }) {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ function SignUpForm({ setUser }) {
     password: "",
     confirm: "",
     userRole: "user",
+    phoneNum: "",
   });
   const [error, setError] = useState("");
   const disable = state.password !== state.confirm;
@@ -99,6 +101,19 @@ function SignUpForm({ setUser }) {
               placeholder="Ensure is the same as above password..." 
               className="input input-bordered w-full max-w-xs" />
             </div>
+            
+            {/* <div className="form-control w-full max-w-xs">
+              <label className="label label-text text-xl text-gray-700 font-bold mb-2"> Phone Number: </label>
+              <PhoneInput 
+              type="number" 
+              name="Phone Number" 
+              defaultCountry="SG" 
+              value={state.phoneNum} 
+              onChange={handleChange} 
+              required
+              placeholder="Please enter your mobile number..." 
+              className="input input-bordered w-full max-w-xs" />
+            </div> */}
 
             <div className="form-control mt-6">
                 <button 

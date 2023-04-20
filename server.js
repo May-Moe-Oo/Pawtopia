@@ -6,6 +6,7 @@ const database = require("./config/database");
 // database.connect();
 
 const userRouter = require("./routes/usersRouter");
+const petRouter = require("./routes/petsRouter");
 //! add other routers here
 
 const jwt = require("jsonwebtoken");
@@ -38,6 +39,7 @@ const isLoggedIn = (req, res, next) => {
 };
 
 app.use("/api/users", userRouter);
+app.use("/api/pets", petRouter);
 //! add other routes here
 
 app.get("/*", function (req, res) {

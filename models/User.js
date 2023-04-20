@@ -31,6 +31,15 @@ const usersSchema = new Schema(
       required: true,
       enum: ["user", "admin"],
     },
+    phoneNum: {
+      type: Number,
+    },
+    pets: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Pet",
+      },
+    ],
   },
   {
     timestamps: {
@@ -57,4 +66,5 @@ usersSchema.set("toJSON", {
   },
 });
 
-module.exports = mongoose.model("User", usersSchema);
+const User = mongoose.model("User", usersSchema);
+module.exports = User;

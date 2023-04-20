@@ -24,6 +24,16 @@ function NavBar({user, setUser}) {
     
 <div className="navbar bg-base-100" >
   <div className="navbar-start">
+  <div className="dropdown">
+      <label tabIndex={0} className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52">
+        <li><Link to={`/aboutus`} className="link-secondary tab tab-lg tab-lifted mx-4">About Us</Link></li>
+        <li><Link to={`/rooms`} className="link-secondary tab tab-lg tab-lifted mx-4">Rooms</Link></li>
+        <li><Link to={`/contactus`} className="link-secondary tab tab-lg tab-lifted mx-4" >Contact Us!</Link></li>
+      </ul>
+    </div>
     <Link to={`/`} className="link-secondary btn btn-ghost normal-case text-xl">Pawtopia</Link>
   </div>
   <div className="navbar-center hidden lg:flex tabs">
@@ -34,8 +44,8 @@ function NavBar({user, setUser}) {
     </ul>
   </div>
 <div className="navbar-end">
-    <div>
-      <Link to={`/users/logout`} className="link-secondary tab tab-lg tab-lifted mx-4" onClick={handleLogout}>Log Out</Link>
+    <div className="link-secondary tab tab-lg tab-lifted mx-4 bg-base-100 ">
+      <Link to={`/users/logout`} className="link-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg px-2" onClick={handleLogout}>Log Out</Link>
       {/* only display when user login */}
     </div>
   <div className="dropdown dropdown-end">
@@ -44,11 +54,12 @@ function NavBar({user, setUser}) {
         <img src={logo} alt='Doggies' />
       </div>
     </label>
-      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        {/* to add ternary operator that show only when user login then will show My pet and My booking and Log out pages */}
+      <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52">
+        {/* to add ternary operator that show only when user login then will show My Profile, My pet and My booking and Log out pages */}
         <li><Link to={`/users/login`} className="justify-between">Account Log In</Link></li>
         <li><Link to={`/users/signup`} className="justify-between">Sign up</Link></li>
-        <li><Link to={`/pets`} className="justify-between">My Pets</Link></li>
+        <li><Link to={`/users/profile`} className="justify-between">My Profile</Link></li>
+        <li><Link to={`/users/pets`} className="justify-between">My Pets</Link></li>
         <li><Link to={`/booking`}  className="justify-between">My Booking</Link></li>
       </ul>
     </div>
