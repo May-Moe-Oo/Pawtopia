@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "644284361fdd74e617c693be"
+  },
+  "roomImageUrl": "https://s.hdnux.com/photos/01/07/37/21/18740310/5/ratio3x2_1900.jpg",
+  "roomName": "Standard Suite",
+  "roomSize": "3 square meter",
+  "roomPrice": "5000",
+  "roomCheckIn": "After 1pm",
+  "roomCheckOut": "Before 12 noon",
+  "roomPackageInfo": "Daily premium, grain-free kibbles \r\nDaycare with playtime and fun activities at our indoor playground\r\nPeriodic updates with photos and videos\r\nDaily walk\r\nFresh bed and blanket\r\nComplimentary bath and brush when you stay more than 6 nights\r"
+},{
+  "_id": {
+    "$oid": "644284361fdd74e617c693bf"
+  },
+  "roomImageUrl": "https://www.gannett-cdn.com/presto/2022/03/03/NFTU/969ba3e9-f245-4c90-aab3-c090ddf978ee-JKI_030222_DogBoarding_07.jpg",
+  "roomName": "Dream Suite",
+  "roomSize": "4.5 square meter",
+  "roomPrice": "9000",
+  "roomCheckIn": "After 1pm",
+  "roomCheckOut": "Before 12 noon",
+  "roomPackageInfo": "Daily premium, grain-free kibbles \nDaycare with playtime and fun activities at our indoor playground\nPeriodic updates with photos and videos\nDaily walk and brushing\nFresh bed and blanket\nComplimentary bath when you stay more than 3 nights\n"
+},{
+  "_id": {
+    "$oid": "644284361fdd74e617c693c0"
+  },
+  "roomImageUrl": "https://s.hdnux.com/photos/01/07/37/21/18740309/6/1200x0.jpg",
+  "roomName": "Presidential Suite",
+  "roomSize": "6 square meter",
+  "roomPrice": "12000",
+  "roomCheckIn": "After 1pm",
+  "roomCheckOut": "Before 12 noon",
+  "roomPackageInfo": "Daily premium, grain-free kibbles \nDaycare with playtime and fun activities at our indoor playground\nPeriodic updates with photos and videos\nDaily walk\nFresh bed and blanket\nComplimentary bath and daily brushing\n"
+}]

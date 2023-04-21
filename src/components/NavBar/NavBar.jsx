@@ -48,7 +48,7 @@ function NavBar({user, setUser}) {
     </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52">
         {!user ? ( <>
-        <li><Link to={`/users/login`} className="justify-between">User Log In</Link></li>
+        <li><Link to={`/users/login`} className="justify-between">Log In</Link></li>
         <li><Link to={`/users/signup`} className="justify-between">Sign up</Link></li>
         </> ) : (null)}
 

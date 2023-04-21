@@ -12,19 +12,18 @@ const create = async (req, res) => {
   }
 };
 
-//! show pet at pet page WIP
-const index1 = async (req, res) => {
-  console.log("1: index " + req.body.User_ID);
-  try {
-    const foundPet = await Pet.find({ User_ID: req.params.userId });
-    res.status(200).send(foundPet);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
+//! Index show pet at pet page WIP
+// const index1 = async (req, res) => {
+//   console.log("1: index " + req.body.User_ID);
+//   try {
+//     const foundPet = await Pet.find({ User_ID: req.params.userId });
+//     res.status(200).send(foundPet);
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// };
 
 const index = async (req, res) => {
-  console.log("1: index " + req.body.User_ID);
   try {
     const foundPet = await Pet.find({});
     res.status(200).send(foundPet);
@@ -33,7 +32,7 @@ const index = async (req, res) => {
   }
 };
 
-//! delete the pet WIP
+//! delete the pet
 const deletePet = async (req, res) => {
   // console.log("1: Del " + req.body.User_ID);
   try {
@@ -45,7 +44,7 @@ const deletePet = async (req, res) => {
   }
 };
 
-//! show find by ID, pet info WIP
+//! show find by ID, pet info
 const show = async (req, res) => {
   // console.log("1: show " + req.body.User_ID);
   try {
@@ -57,7 +56,7 @@ const show = async (req, res) => {
   }
 };
 
-//! edit and update the pet WIP
+//! edit and update the pet 
 const update = async (req, res) => {
   // console.log("1: update " + req.body.User_ID);
   try {

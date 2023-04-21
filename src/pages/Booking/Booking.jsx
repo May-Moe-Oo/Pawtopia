@@ -13,7 +13,7 @@ function Booking({user}) {
                     <h1>List of book rooms</h1>
                     <br />
                     <p>No record of rooms booked can be found</p>
-                    <button className="btn btn-outline btn-secondary">Click to find your pawfect Room</button>
+                    <Link to={`/rooms`}><button className="btn btn-outline btn-secondary">Click to find your pawfect Room</button></Link>
                     <br />
                     <p>to insert Booked Room table here</p>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>

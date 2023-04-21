@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-// {userID}
+
+// function PetCard({userID}) {
 function PetCard() {
     //! show the list of pets 
     const [pets, setPets] = useState([{ _id: "" }]);
@@ -47,4 +48,4 @@ function PetCard() {
 
 export default PetCard;
 
- {/* petUrl,   petName,   petGender,   petAge,  petBreed */}
+// petUrl,   petName,   petGender,   petAge,  petBreed 

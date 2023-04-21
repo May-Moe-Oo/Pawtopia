@@ -7,6 +7,8 @@ const database = require("./config/database");
 
 const userRouter = require("./routes/usersRouter");
 const petRouter = require("./routes/petsRouter");
+const roomRouter = require("./routes/roomsRouter");
+const bookingRouter = require("./routes/bookingsRouter");
 //! add other routers here
 
 const jwt = require("jsonwebtoken");
@@ -40,6 +42,8 @@ const isLoggedIn = (req, res, next) => {
 
 app.use("/api/users", userRouter);
 app.use("/api/pets", petRouter);
+app.use("/api/rooms", roomRouter);
+app.use("/api/bookings", bookingRouter);
 //! add other routes here
 
 app.get("/*", function (req, res) {

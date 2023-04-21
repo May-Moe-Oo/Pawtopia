@@ -21,7 +21,6 @@ function Pets({user}) {
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-start">
-                    {/*  Page content here  */}
                     {user && <h2>Welcome {user.name}</h2>}
                     <h1>My Paw Buddies</h1> <br/>
                     <Link to={`/pets/new`}> <button className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Add My Paw Buddy's information</button></Link>

@@ -39,7 +39,7 @@ function App() {
         <Route path="/users/login" element={<LoginForm setUser={setUser} />} />
         <Route path="/users/logout" element={<LogOutMsg />} />
         <Route path="/users/profile" element={user ? <UserProfile user={user}/>: <AccessDeniedMsg />} /> 
-        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/rooms" element={<Rooms user={user} />} />
         <Route path="/booking" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />

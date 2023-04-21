@@ -19,5 +19,6 @@ const Booking = require("../models/Booking");
 // };
 
 module.exports = {
-
+// create,
+// index,
 };
