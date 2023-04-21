@@ -12,32 +12,21 @@ const create = async (req, res) => {
   }
 };
 
-// const create = async (req, res) => {
-//   try {
-//     const user = req.user; // Get the user from the request object
-//     const petData = req.body; // Get the pet data from the request body
-
-//     // Create a new pet with the user's ID set as the user field
-//     const createdPet = await Pet.create({
-//       ...petData,
-//       User_ID: "6440deded8f7859fd7b9de9d", // user's ID
-//     });
-
-//     // Add the pet's ID to the user's pets array
-//     User_ID.pets.push(createdPet._id);
-//     await user.save();
-
-//     res.status(200).send(createdPet);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// };
-
 //! show pet at pet page WIP
-const index = async (req, res) => {
+const index1 = async (req, res) => {
   console.log("1: index " + req.body.User_ID);
   try {
     const foundPet = await Pet.find({ User_ID: req.params.userId });
+    res.status(200).send(foundPet);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+const index = async (req, res) => {
+  console.log("1: index " + req.body.User_ID);
+  try {
+    const foundPet = await Pet.find({});
     res.status(200).send(foundPet);
   } catch (error) {
     res.status(400).json({ error: error.message });

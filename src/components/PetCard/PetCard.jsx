@@ -1,20 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
-function PetCard({userID}) {
+// {userID}
+function PetCard() {
     //! show the list of pets 
     const [pets, setPets] = useState([{ _id: "" }]);
 
-    // useEffect(() => {
-    //     fetch("/api/pets")
-    //     .then((response) => response.json())
-    //     .then((data) => setPets(data));
-    // }, []);
-
     useEffect(() => {
         const fetchPets = async (req, res) => {
-        const response = await fetch(`/api/pets/${userID}`);
+        //  const response = await fetch(`/api/pets/${userID}`);
+        const response = await fetch("/api/pets");
         const petsData = await response.json();
         setPets(petsData);
         };

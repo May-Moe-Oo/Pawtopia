@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import UserNavbar from "../../components/UserNavbar/UserNavbar";
+
 //! show pet's infor, edit and delete button - WIP
 
 function PetsInfo({user}) {
@@ -12,14 +13,16 @@ function PetsInfo({user}) {
     // fetch a pet based on a specific id passed as a dependency
   useEffect(() => {
     const fetchPet = async () => {
-      const response = await fetch(`/api/pets/${id}`); //! not working here -> error : "Cannot access 'Pet' before initialization"
+      const response = await fetch(`/api/pets/${id}`); //! not working here 
       console.log("1. Res = "+ response);
+      console.log("Data = "+ response.data);
       const petData = await response.json();
+      console.log("petData = "+ petData);
       setPet(petData);
-    };
+    }; 
     fetchPet();
   }, [id]);
-
+  
   const handleDelete = async (id) => { 
     try {
       const response = await fetch(`/api/pets/${id}/`, {
@@ -38,7 +41,6 @@ function PetsInfo({user}) {
 if (Object.keys(pet).length === 0) {
     return (
       <> <p>No Pet Information has been recorded yet</p> 
-      {/* loading here? */}
       </>
     );
   } else {
