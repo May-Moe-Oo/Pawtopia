@@ -13,7 +13,7 @@ function PetsInfo({user}) {
     // fetch a pet based on a specific id passed as a dependency
   useEffect(() => {
     const fetchPet = async () => {
-      const response = await fetch(`/api/pets/${id}`); //! not working here 
+      const response = await fetch(`/api/pets/${id}`);
       console.log("1. Res = "+ response);
       console.log("Data = "+ response.data);
       const petData = await response.json();

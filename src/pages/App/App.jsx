@@ -13,6 +13,7 @@ import LoginForm from "../AuthPage/LoginForm";
 import LogOutMsg from "../AuthPage/LogOutMsg";
 import UserProfile from "../AuthPage/UserProfile";
 import Rooms from "../Rooms/RoomsAvil";
+import RoomsInfo from "../Rooms/RoomsInfo";
 import Booking from "../Booking/Booking";
 import Pets from "../Pets/Pets"
 import PetsCreateForm from "../Pets/PetsCreateForm";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/users/logout" element={<LogOutMsg />} />
         <Route path="/users/profile" element={user ? <UserProfile user={user}/>: <AccessDeniedMsg />} /> 
         <Route path="/rooms" element={<Rooms user={user} />} />
+        <Route path="/rooms/:id" element={<RoomsInfo user={user} />} />
         <Route path="/booking" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />

@@ -4,7 +4,7 @@ const Room = require("../models/Room");
 const index = async (req, res) => {
   try {
     const getRooms = await Room.find({});
-    console.log("Rooms are " + getRooms);
+    console.log("Rooms' data are " + getRooms);
     res.status(200).send(getRooms);
   } catch (error) {
     res.status(400).json({ error: error.message });

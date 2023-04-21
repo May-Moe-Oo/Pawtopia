@@ -4,6 +4,6 @@ const router = express.Router();
 
 // ("/api/rooms")
 router.get("/", roomsController.index); //! show all rooms
-// router.get("/:id", roomsController.show); //! show selected room thats find by ID
+router.get("/:id", roomsController.show); //! show selected room thats find by ID
 
 module.exports = router;

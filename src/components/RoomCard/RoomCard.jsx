@@ -24,7 +24,7 @@ function RoomCard() {
         <div>
             <h1> Rooms </h1>
         <div >
-            {rooms.map((r) => (
+            {rooms ? rooms.map((r) => (
                 <div key={r._id} className="card card-compact w-96 bg-base-100">
                     <div onMouseOver={() => onclick(r._id)}>
                         <Link to={`/rooms/${r._id}`}>
@@ -35,10 +35,11 @@ function RoomCard() {
                         </Link>
                     </div>
                 </div>
-            )) }
+            )) : 
             <div>
                 <h1>Sorry, No rooms are available at the moment.</h1>
             </div>
+            }
              </div>
         <Link to={`/rooms/${selectedRoom?._id}`} rooms={rooms} underline="none"/>
         </div>
