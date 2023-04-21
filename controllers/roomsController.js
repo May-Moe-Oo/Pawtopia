@@ -13,7 +13,6 @@ const index = async (req, res) => {
 
 //! show and find each room by ID, room info page WIP
 const show = async (req, res) => {
-  // console.log("1: show " + req.body.User_ID);
   try {
     const showRoom = await Room.findById(req.params.id);
     console.log("Each room infor is " + showRoom);
