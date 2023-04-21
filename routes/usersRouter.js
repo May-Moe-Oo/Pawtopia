@@ -4,5 +4,6 @@ const router = express.Router();
 // ("/api/users")
 router.post("/", userController.create);
 router.post("/login", userController.login);
+router.get("/pets", userController.show);
 
 module.exports = router;

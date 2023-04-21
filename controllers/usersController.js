@@ -48,8 +48,28 @@ const login = async (req, res) => {
   }
 };
 
+const show = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).populate("pets");
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
 
+// const show1 = async (req, res) => {
+//   try {
+//     const exhibition = await Exhibition.findById(req.params.id).populate(
+//       "artworks"
+//     );
+//     res.status(200).json(exhibition);
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// };
+ 
 module.exports = {
   create,
   login,
+  show,
 };

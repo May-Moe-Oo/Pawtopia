@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 import { Routes, Route } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
+import UserNavbar from "../../components/UserNavbar/UserNavbar";
 import { getToken, getUser } from "../../utilities/users-service";
 import './App.css'
 import HomePage from "../HomePage/HomePage";
@@ -15,6 +16,8 @@ import Rooms from "../Rooms/RoomsAvil";
 import Booking from "../Booking/Booking";
 import Pets from "../Pets/Pets"
 import PetsCreateForm from "../Pets/PetsCreateForm";
+import PetsEditForm from "../Pets/PetsEditForm";
+import PetInfo from "../Pets/PetsInfo";
 import AccessDeniedMsg from "../../components/AccessDeniedMsg/AccessDeniedMsg";
 import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
@@ -35,13 +38,13 @@ function App() {
         <Route path="/users/signup" element={<SignUpForm setUser={setUser} />} />
         <Route path="/users/login" element={<LoginForm setUser={setUser} />} />
         <Route path="/users/logout" element={<LogOutMsg />} />
-        <Route path="/users/profile" element={<UserProfile user={user}/>} />
+        <Route path="/users/profile" element={user ? <UserProfile user={user}/>: <AccessDeniedMsg />} /> 
         <Route path="/rooms" element={<Rooms />} />
-        <Route path="/booking" element={<Booking user={user} />} />
-        {/* <Route path="/booking" element={user && user.userRole == "user" ? <Booking user={user} /> : <AccessDeniedMsg />} />  */}
-        <Route path="/users/pets" element={<Pets user={user} setUser={setUser}/>} />
-        <Route path="/users/pets/new" element={<PetsCreateForm user={user} setUser={setUser}/>} />
-        {/* <Route path="/Pets" element={user && user.userRole == "user" ? <Pets user={user} /> : <AccessDeniedMsg />} />  */}
+        <Route path="/booking" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
+        <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
+        <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
+        <Route path="/pets/:id/edit" element={user ? <PetsEditForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
+        <Route path="/pets/:id" element={user ? <PetInfo user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
       </Routes>
       </div>
     </div>

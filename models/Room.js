@@ -19,11 +19,11 @@ const roomSchema = new Schema({
     required: true,
   },
 
-  roomType: {
-    type: String,
-    enum: ["Studio", "Shared"],
-    required: true,
-  },
+  // roomType: {
+  //   type: String,
+  //   enum: ["Studio", "Shared"],
+  //   required: true,
+  // },
 
   roomSize: {
     type: String,

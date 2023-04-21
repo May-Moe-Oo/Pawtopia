@@ -25,7 +25,8 @@ function SignUpForm({ setUser }) {
     return;
     }
 
-    window.alert(state.email + " Account has been created successfully. Please Login.");
+    // window.alert(state.email + " Account has been created successfully. Please Login.");
+    
     fetch("/api/users", {
       method: "POST",
       headers: {

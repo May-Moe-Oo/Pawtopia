@@ -18,7 +18,7 @@ function Booking({user}) {
                     <p>to insert Booked Room table here</p>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div> 
-                <UserNavbar />
+                <UserNavbar user={user}/>
             </div> 
         </div>
     );

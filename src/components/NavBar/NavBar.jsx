@@ -10,16 +10,6 @@ function NavBar({user, setUser}) {
     setUser(null);
     console.log("User has been logged out successfully.");
   };
-  // const UserLogout = () => (
-  //   <div>
-  //     {user ? ( <>
-  //         <Link to={`/users/logout`}>
-  //         <button onClick={handleLogout}>Log Out</button>
-  //         </Link>
-  //       </>) : null }
-  //   </div>
-  // );
-
   return (
     
 <div className="navbar bg-base-100" >
@@ -44,23 +34,30 @@ function NavBar({user, setUser}) {
     </ul>
   </div>
 <div className="navbar-end">
-    <div className="link-secondary tab tab-lg tab-lifted mx-4 bg-base-100 ">
+  {user ? (
+    <div className="link-secondary tab tab-lg tab-lifted mx-4 bg-base-100 ">  
       <Link to={`/users/logout`} className="link-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg px-2" onClick={handleLogout}>Log Out</Link>
-      {/* only display when user login */}
     </div>
+  ) : (null)}  {/* only display when user login */}
+    
   <div className="dropdown dropdown-end">
     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-      <div className="w-10 rounded-full">
+      <div className="w-20 rounded-full">
         <img src={logo} alt='Doggies' />
       </div>
     </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52">
-        {/* to add ternary operator that show only when user login then will show My Profile, My pet and My booking and Log out pages */}
-        <li><Link to={`/users/login`} className="justify-between">Account Log In</Link></li>
+        {!user ? ( <>
+        <li><Link to={`/users/login`} className="justify-between">User Log In</Link></li>
         <li><Link to={`/users/signup`} className="justify-between">Sign up</Link></li>
+        </> ) : (null)}
+
+        {user ? ( <>
         <li><Link to={`/users/profile`} className="justify-between">My Profile</Link></li>
-        <li><Link to={`/users/pets`} className="justify-between">My Pets</Link></li>
+        <li><Link to={`/pets`} className="justify-between">My Pets</Link></li>
         <li><Link to={`/booking`}  className="justify-between">My Booking</Link></li>
+        </> ) : (null)}
+        {/* to add ternary operator that show only when user login then will show My Profile, My pet and My booking and Log out pages */}
       </ul>
     </div>
 </div>

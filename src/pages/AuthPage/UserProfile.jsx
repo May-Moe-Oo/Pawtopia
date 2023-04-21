@@ -16,16 +16,14 @@ function UserProfile({user, setUser}) {
                     {/*  Page content here  */}
                     {user && 
                     <>
-                    <h2 className="text-3xl font-bold py-2">Welcome {user.name}</h2> <br/>
-                    <img src={Koby} alt="Koby" className="w-half rounded-lg shadow-2xl" />
+                    <h2 className="text-4xl font-bold py-2">Welcome {user.name}</h2> <br/>
+                    <img src={Koby} alt="Koby" className="h-96 rounded-lg shadow-2xl" />
                     </>
                     }
                     <br/>
-                    <h1>testing to delete later</h1>
-                    <h1></h1>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div> 
-                <UserNavbar />
+                <UserNavbar user={user} />
             </div> 
         </div>
     );

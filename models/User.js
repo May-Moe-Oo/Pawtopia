@@ -34,12 +34,6 @@ const usersSchema = new Schema(
     phoneNum: {
       type: Number,
     },
-    pets: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Pet",
-      },
-    ],
   },
   {
     timestamps: {

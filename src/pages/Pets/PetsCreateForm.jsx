@@ -1,14 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+
 import UserNavbar from "../../components/UserNavbar/UserNavbar";
 //! create and add new Pet's information
 
 function PetsCreateForm({user, setUser}) {
     // const { id } = useParams();
-    // const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const [pets, setPets] = useState([]);
     const addPet = (pet) => setPets([pet, ...pets]); // add new pet 
@@ -18,37 +16,15 @@ function PetsCreateForm({user, setUser}) {
     petGender: "",
     petBreed: "",
     User_ID: user._id,
+    // UserName: user.name,
     });
     // console.log("Before data is "+ data);
- 
-  // const validateSchema = Yup.object().shape({
-  //   petImageUrl: Yup.string().url().nullable(),
-  //   petName: Yup.string().required("This field is required"),
-  //   petGender: Yup.string().required("This field is required"),
-  //   petBreed: Yup.string().required("This field is required"),
-  // });
 
-  // const formik = useFormik({
-  //   initialValues: {
-  //     petImageUrl: "",
-  //     petName: "",
-  //     petGender: "",
-  //     petBreed: "",
-  //   },
-  //   validationSchema: validateSchema,
-  //   onSubmit: (values, { resetForm }) => {
-  //     console.log(values);
-  //     setLoading(true);
-  //     setTimeout(() => {
-  //       setLoading(false);
-  //       resetForm();
-  //     }, 1000 * 2);
-  //   },
-  // });
 
   function handleChange(event) {
     event.preventDefault();
-    setData({ ...data, [event.target.name]: event.target.value });
+    setData({ ...data, 
+      [event.target.name]: event.target.value, User_ID: user._id });
     console.log("After chg data is" + data);
   }
   const handleAddNewPet = async (event) => {
@@ -63,7 +39,7 @@ function PetsCreateForm({user, setUser}) {
       const pet = await response.json();
       addPet(pet);
     console.log("New Pet information registered");
-    navigate('/users/pets');
+    navigate('/pets');
   };
 
     function handleSubmit(event) {
@@ -82,9 +58,7 @@ function PetsCreateForm({user, setUser}) {
                     <div className="form-control w-full max-w-xs">
                     
                     {/* <h1 > {JSON.stringify(user._id)}</h1>  */}
-                    <h1>user id : {data.User_ID}</h1>
-                    <br/>
-
+                    <h1 className="hidden">User ID : {data.User_ID}</h1>
                     <label className="label"><span className="label-text">What does your paw buddy looks like?</span></label>
                     <input 
                     type="text" 
@@ -94,7 +68,7 @@ function PetsCreateForm({user, setUser}) {
                     onChange={handleChange}
                     placeholder="Insert Photo / image URL " 
                     className="input input-bordered input-error w-full max-w-xs" />
-                    <br/>
+                    <br/> 
 
                     <label className="label"><span className="label-text">What is your paw buddy's name?</span></label>
                     <input 
@@ -125,7 +99,7 @@ function PetsCreateForm({user, setUser}) {
                     value={data.petGender}
                     onChange={handleChange}
                     className="select select-error w-full max-w-xs">
-                      {/* <option disabled value >Select Gender</option> */}
+                      <option disabled selected>Select Gender</option>
                       <option value="Female">Female</option>
                       <option value="Male">Male</option>
                     </select>
@@ -134,8 +108,8 @@ function PetsCreateForm({user, setUser}) {
                     <button type="submit" className="btn btn-secondary" onClick={handleAddNewPet}>Add Pet's Info</button>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div> 
-
-                <UserNavbar />
+                <br/>
+                <UserNavbar user={user}/>
             </div>
           </form>           
         </div>

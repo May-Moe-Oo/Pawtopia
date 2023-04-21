@@ -27,7 +27,7 @@ function LoginForm({setUser}) {
         localStorage.setItem("token", data.token);
         setUser(getUser())
         setError("");
-        window.alert("Account has login successfully."); 
+        // window.alert("Account has login successfully."); 
         console.log("Login successfully.");
         console.log(JSON.stringify(data));
         navigate('/users/profile');

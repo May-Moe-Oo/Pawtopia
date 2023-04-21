@@ -22,7 +22,12 @@ const petSchema = new Schema({
     type: String,
     required: true,
   },
+
+  User_ID: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
- 
+
 const Pet = mongoose.model("Pet", petSchema);
-module.exports = Pet; 
+module.exports = Pet;

@@ -7,11 +7,10 @@ const router = express.Router();
 // router.post("/users/:id/pets", petsController.create); //! create new pet
 // router.get("/", petsController.index); //! show new pet at users/:id/pet page
 
-
-// Before embedding inside the user model ("/api/pets")
+//! ("/api/pets")
 router.post("/", petsController.create); //! create new pet
-router.get("/", petsController.index); //! show pet at pet page
-// router.get("/:id", petsController.show); //! show find by ID
-// router.delete("/:id", petsController.delete); //! delete the pet
-// router.put("/:id", petsController.update); //! edit and update the pet
+router.get("/:userId", petsController.index); //! show pet at pet page
+router.get("/:id", petsController.show); //! show find by ID
+router.delete("/:id", petsController.delete); //! delete the pet
+router.put("/:id", petsController.update); //! edit and update the pet
 module.exports = router;
