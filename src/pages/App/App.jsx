@@ -14,6 +14,7 @@ import LogOutMsg from "../AuthPage/LogOutMsg";
 import UserProfile from "../AuthPage/UserProfile";
 import Rooms from "../Rooms/RoomsAvil";
 import RoomsInfo from "../Rooms/RoomsInfo";
+import NewBooking from "../Booking/NewBooking";
 import Booking from "../Booking/Booking";
 import Pets from "../Pets/Pets"
 import PetsCreateForm from "../Pets/PetsCreateForm";
@@ -22,8 +23,10 @@ import PetInfo from "../Pets/PetsInfo";
 import AccessDeniedMsg from "../../components/AccessDeniedMsg/AccessDeniedMsg";
 import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
+
 function App() {
   const [user, setUser] = useState(getUser());
+  // const [pets, setPets] = useState([]);
 
   return (
       <div className='App'>
@@ -40,8 +43,12 @@ function App() {
         <Route path="/users/login" element={<LoginForm setUser={setUser} />} />
         <Route path="/users/logout" element={<LogOutMsg />} />
         <Route path="/users/profile" element={user ? <UserProfile user={user}/>: <AccessDeniedMsg />} /> 
-        <Route path="/rooms" element={<Rooms user={user} />} />
+        <Route path="/rooms" element={<Rooms />} />
         <Route path="/rooms/:id" element={<RoomsInfo user={user} />} />
+        
+        {/* <Route path="/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} />  */}
+        <Route path="/bookingForm" element={<NewBooking user={user} />} />  {/* to replace later */}
+        
         <Route path="/booking" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />

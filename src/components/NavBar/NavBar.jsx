@@ -35,8 +35,10 @@ function NavBar({user, setUser}) {
   </div>
 <div className="navbar-end">
   {user ? (
-    <div className="link-secondary tab tab-lg tab-lifted mx-4 bg-base-100 ">  
-      <Link to={`/users/logout`} className="link-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg px-2" onClick={handleLogout}>Log Out</Link>
+    <div className=" mx-4 ">  
+      <Link to={`/users/logout`} onClick={handleLogout}>
+        <button className="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg px-2">Log Out</button>
+        </Link>
     </div>
   ) : (null)}  {/* only display when user login */}
     

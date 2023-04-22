@@ -1,6 +1,6 @@
 import React from 'react';
 import petsSpa from "../../images/petsSpa.jpg";
-import Party from "../../images/Pets/party.jpg";
+import Party from "../../images/Pets/Party.jpg";
 import Playtime from "../../images/Pets/Playtime.jpg";
 import PoolDay from "../../images/Pets/PoolDay.jpg";
 

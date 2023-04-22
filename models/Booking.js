@@ -34,7 +34,6 @@ const bookingSchema = new Schema({
   remarks: {
     type: String,
     trim: true,
-    required: true,
   },
 });
 
