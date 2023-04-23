@@ -13,7 +13,7 @@ const bookingSchema = new Schema({
       ref: "Room",
     },
   ],
-  
+
   bookingStartDate: {
     type: Date,
     required: true,

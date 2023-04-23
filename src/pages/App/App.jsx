@@ -53,7 +53,8 @@ function App() {
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/:id/edit" element={user ? <PetsEditForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
-        <Route path="/pets/:id" element={user ? <PetInfo user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
+        {/* <Route path="/pets/petID/:id" element={user ? <PetInfo user={user} setUser={setUser}/> : <AccessDeniedMsg />} /> */}
+        <Route path="/pets/user/:id" element={user ? <PetInfo user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
       </Routes>
       </div>
     </div>

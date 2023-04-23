@@ -9,7 +9,7 @@ function Pets({user}) {
 
     useEffect(() => {
         const getPets = async () => {
-        const response = await fetch("/api/pets")
+        const response = await fetch(`/api/pets/${user._id}`)
         const data = await response.json();
         setPets(data);
         };
@@ -25,8 +25,7 @@ function Pets({user}) {
                     <h1>My Paw Buddies</h1> <br/>
                     <Link to={`/pets/new`}> <button className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Add My Paw Buddy's information</button></Link>
                     <br />
-                    <PetCard pets={pets} />
-                    {/* <PetCard pets={pets} userID={user._id} /> */}
+                    <PetCard pets={pets} userID={user._id} />
                     <br/>
                     <h1>No Pet has been registered</h1> <br/>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>

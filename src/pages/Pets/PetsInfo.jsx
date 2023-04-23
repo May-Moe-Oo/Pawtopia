@@ -13,7 +13,7 @@ function PetsInfo({user}) {
     // fetch a pet based on a specific id passed as a dependency
   useEffect(() => {
     const fetchPet = async () => {
-      const response = await fetch(`/api/pets/${id}`);
+      const response = await fetch(`/api/pets/user/${id}`);
       console.log("1. Res = "+ response);
       console.log("Data = "+ response.data);
       const petData = await response.json();
@@ -25,7 +25,7 @@ function PetsInfo({user}) {
   
   const handleDelete = async (id) => { 
     try {
-      const response = await fetch(`/api/pets/${id}/`, {
+      const response = await fetch(`/api/pets/petDel/${id}/`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

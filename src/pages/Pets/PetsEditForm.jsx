@@ -12,7 +12,7 @@ function PetsEditForm({user}) {
 
 useEffect(() => {
     const fetchPet = async () => {
-      const response = await fetch(`/api/pets/${id}`);
+      const response = await fetch(`/api/pets/user/${id}`);
       console.log("1. Response is "+response);
       const petData = await response.json();
       console.log("2. petData Response is "+ petData);
@@ -98,6 +98,9 @@ useEffect(() => {
                     </div>
                     <br/>
                     <button type="submit" className="btn btn-secondary" onClick={handlePetInfoUpdate}>Update My Pet's Info</button>
+                    <br/>
+                    <Link to={`/pets/user/${pet._id}`}><button className="btn btn-secondary" >Cancel</button></Link>
+                    
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div> 
                 <br/>
