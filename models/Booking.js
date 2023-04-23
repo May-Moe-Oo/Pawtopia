@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookingSchema = new Schema({
-  // user: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "User",
-  //   required: true,
-  // },
-  roomName: [
+  usersName: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  roomsName: [
     {
       type: Schema.Types.ObjectId,
       ref: "Room",
@@ -24,7 +24,7 @@ const bookingSchema = new Schema({
     required: true,
   },
 
-  petName: [
+  petsName: [
     {
       type: Schema.Types.ObjectId,
       ref: "Pet",
@@ -37,4 +37,5 @@ const bookingSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Booking", bookingSchema);
+const Booking = mongoose.model("Booking", bookingSchema);
+module.exports = Booking;

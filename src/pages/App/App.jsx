@@ -26,8 +26,8 @@ import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
 function App() {
   const [user, setUser] = useState(getUser());
-  // const [pets, setPets] = useState([]);
-
+  console.log("user: " + user);
+  console.log("setUser: " + setUser);
   return (
       <div className='App'>
       <div className='NavBar'>
@@ -47,7 +47,7 @@ function App() {
         <Route path="/rooms/:id" element={<RoomsInfo user={user} />} />
         
         {/* <Route path="/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} />  */}
-        <Route path="/bookingForm" element={<NewBooking user={user} />} />  {/* to replace later */}
+        <Route path="/bookings/bookingForm" element={<NewBooking user={user} />} />  {/* to replace later */}
         
         <Route path="/booking" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />

@@ -49,8 +49,8 @@ function RoomsInfo({user}) {
                 <br/>
 
                 <div className="card-actions justify-start">
-                     <Link to={`/bookingForm`}> 
-                     <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Book Now</button>
+                     <Link to={`/bookings/bookingForm`}> 
+                     <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Book Now </button>
                      </Link>
                 </div>
                 <br/>

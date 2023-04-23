@@ -119,7 +119,7 @@ function SignUpForm({ setUser }) {
             <div className="form-control mt-6">
                 <button 
                 type="submit" disabled={disable}
-                className="btn btn-secondary">Sign Up</button>
+                className="btn btn-secondary btn-wide btn-xs sm:btn-sm md:btn-md lg:btn-lg">Sign Up</button>
                 <p className="error-message">&nbsp;{state.error}</p>
             </div>
 

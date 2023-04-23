@@ -1,24 +1,19 @@
 const Booking = require("../models/Booking");
+const Pet = require("../models/Pet");
+const User = require("../models/User");
+const Room = require("../models/Room");
 
-// const createBooking = async (req, res) => {
-//   const { room, pets, startDate, endDate } = req.body;
-//   const user = req.user; 
+const getpets = async (req, res) => {
 
-//   try {
-//     const booking = await Booking.create({
-//       user,
-//       room,
-//       pets,
-//       startDate,
-//       endDate,
-//     });
-//     res.status(201).json(booking);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// };
-
+  try {
+    const { id } = req.params;
+    const pets = await Pet.find({ User_ID: id });
+    res.status(201).json(pets);
+    console.log(pets);
+  } catch {
+    res.status(500).json(error);
+  }
+};
 module.exports = {
-// create,
-// index,
+  getpets,
 };
