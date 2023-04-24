@@ -12,11 +12,10 @@ function Booking({user}) {
                     {/*  Page content here  */}
                     <h1 className="font-bold">{user.name}'s List of room bookings</h1>
                     <br />
-                    <Link to={`/rooms`}><button className="btn btn-outline btn-secondary">Click to find your pawfect Room</button></Link>
+                    <BookingTable user={user}/>
                     <br />
-                    <p> Note: to insert Booked Room table here</p>
-                    <p> Note: Booking table component need to map out</p>
-                    <BookingTable/>
+                    <Link to={`/rooms`}><button className="btn btn-outline btn-secondary my-5">Click to find your pawfect Room</button></Link>
+                    <br/>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div> 
                 <UserNavbar user={user}/>

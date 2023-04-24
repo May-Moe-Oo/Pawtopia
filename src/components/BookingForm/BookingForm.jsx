@@ -8,7 +8,7 @@ function BookingForm({user}) {
   const navigate = useNavigate();
   const [pets, setPets] = useState([]); 
   useEffect(() => {
-    const fetchPeting = async () => {
+    const fetchPeting = async (req, res) => {
       const response = await fetch(`/api/bookings/${user._id}/guestPet`);
       console.log("1. Response is "+response);
       const petData = await response.json();
