@@ -31,21 +31,21 @@ function RoomsInfo({user}) {
         <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-start">
-          <h1 className="card-title text-secondary">{room.roomName}</h1> 
+          {/* <h1 className="card-title text-secondary">{room.roomName}</h1>  */}
           <br/>
 
           <div className="card lg:card-side bg-base-100 shadow-xl">
             
             <figure> <img height="20"src={room.roomImageUrl} alt={room.roomName}/> </figure>
             <div className="card-body">
-                <h1 className="card-title text-secondary">{room.roomName}</h1> 
-                <h2>{(room.roomPrice / 100).toLocaleString("en-US", {style: "currency", currency: "SGD",})} / Night </h2>                 
+                <h1 className="card-title text-secondary text-6xl font-bold">{room.roomName}</h1> 
+                <h2 className="text-xl mt-5">{(room.roomPrice / 100).toLocaleString("en-US", {style: "currency", currency: "SGD",})} / Night </h2>                 
                 <br/>
-                <h2 className="text-secondary">Room Details:</h2>
-                <h2>{room.roomSize}</h2>
-                <h2>{room.roomCheckIn}</h2>
-                <h2>{room.roomCheckOut}</h2>
-                <h2>{room.roomPackageInfo}</h2> 
+                <h2 className="text-secondary text-2xl font-bold">Room Details:</h2>
+                <h2 className='text-xl'>{room.roomSize}</h2>
+                <h2 className='text-xl'>{room.roomCheckIn}</h2>
+                <h2 className='text-xl'>{room.roomCheckOut}</h2>
+                <h2 className='text-xl'>{room.roomPackageInfo}</h2> 
                 <br/>
 
                 <div className="card-actions justify-start">

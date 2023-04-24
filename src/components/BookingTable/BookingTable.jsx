@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function BookingTable({user}) {
@@ -42,11 +41,11 @@ function BookingTable({user}) {
                         </div>
                         </div> */}
                         <div>
-                        <div className="font-bold">{roomBooked.petsName}</div>
+                        <div className="font-bold">{roomBooked.petsName?.petName}</div>
                         </div>
                     </div>
                     </td>
-                    <td> {roomBooked.roomsName} </td>
+                    <td> {roomBooked.roomsName?.roomName} </td>
                     <td> {roomBooked.bookingStartDate} </td>
                     <td> {roomBooked.bookingEndDate} </td>
                     <td> {roomBooked.remarks} </td>

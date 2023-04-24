@@ -1,11 +1,11 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-// import Calendar from 'react-calendar'
-// import FormCalendar from "./FormCalendar";
+import { useNavigate } from "react-router-dom";
+import { differenceInCalendarDays } from 'date-fns';
 
 function BookingForm({user}) {
   const navigate = useNavigate();
+
   const [pets, setPets] = useState([]); 
   useEffect(() => {
     const fetchPeting = async (req, res) => {
@@ -30,14 +30,15 @@ function BookingForm({user}) {
     remarks: "",
   });
   console.log("Before data is "+ roomBookingData);
-
+  const disable = !roomBookingData.petsName;
+//! ------------------------------------------------------------------
   function handleChange(event) {
     event.preventDefault();
     SetRoomBookingData({ ...roomBookingData, 
       [event.target.name]: event.target.value});
     console.log("After chg data is" + roomBookingData);
   }
-
+//! ------------------------------------------------------------------
   const handleNewRoomBooking = async (event) => {
     event.preventDefault()
     const response = await fetch("/api/bookings/bookingForm", {
@@ -52,13 +53,18 @@ function BookingForm({user}) {
     console.log("New Room Booking has been Made!");
     navigate('/MyBookings'); // MyBookings, show all the booking made by this user
   };
-
+//! ------------------------------------------------------------------
   function handleSubmitBooking(event) {
     event.preventDefault();
     alert(JSON.stringify(roomBookingData));
     console.log("Room Booking was Submitted!");
   };
-
+//! ------------------------------------------------------------------
+   let numberOfNights = 0;
+  if (roomBookingData.bookingStartDate && roomBookingData.bookingEndDate) {
+    numberOfNights = differenceInCalendarDays(new Date(roomBookingData.bookingEndDate), new Date(roomBookingData.bookingStartDate));
+  }
+//! ------------------------------------------------------------------
     return (
         <div>
             <form 
@@ -79,11 +85,8 @@ function BookingForm({user}) {
                     </h1>
                     <h1 className="">Customer ID: {user._id}</h1>
                     <br/> 
-                    
-                    <p>"To insert calander here"</p>
-                    
-                    <br/> 
 
+                    {/*  */}
                     <span className="label-text">Type of Room </span>
                     <select 
                     name="roomsName"
@@ -98,6 +101,39 @@ function BookingForm({user}) {
                     </select>
                     <br/>
 
+                    {/*  */}
+                    <p>"To insert calander here"</p>
+                    <div >
+                    <span className="label-text">Check In date </span>
+                    <input 
+                    type="date" 
+                    name="bookingStartDate"
+                    value={roomBookingData.bookingStartDate}
+                    required
+                    onChange={handleChange} 
+                    className="border my-4 p-2 p-x rounded-2xl w-full max-w-xs"/>
+                    </div>
+
+                    <div >
+                    <span className="label-text">Check Out date </span>
+                    <input 
+                    type="date" 
+                    name="bookingEndDate"
+                    value={roomBookingData.bookingEndDate}
+                    required
+                    onChange={handleChange} 
+                    className="border my-2 p-2 p-x rounded-2xl w-full max-w-xs"/>
+                    </div>
+                    <br/>
+                    <p>Numbers of nights selected: 
+                    {numberOfNights > 0 && (
+                      <span> {numberOfNights} nights</span>
+                    )}
+                    </p>
+                    <br/>
+                   
+                    {numberOfNights > 0 && (
+                      <div>
                     <span className="label-text">Paw Guest Name</span>
                     <select 
                     name="petsName"
@@ -113,7 +149,7 @@ function BookingForm({user}) {
                         </option>
                       ))}
                     </select>
-
+                    
                     <br/>
 
                     <label className="label"><span className="label-text">Additional Remarks</span></label>
@@ -124,10 +160,11 @@ function BookingForm({user}) {
                     onChange={handleChange} 
                     className="textarea textarea-error textarea-bordered textarea-lg w-full max-w-xs" />
                     <br/>
-
+                    </div>
+                    )}
                     </div>
                     <br/>
-                    <button type="submit" className="btn btn-secondary" onClick={handleNewRoomBooking} >Confirm Booking</button>
+                    <button type="submit" className="btn btn-secondary" disabled={disable} onClick={handleNewRoomBooking} >Confirm Booking</button>
                     {/* <button type="submit" className="btn btn-secondary" >Confirm Booking</button> */}
                 </div> 
             </div>

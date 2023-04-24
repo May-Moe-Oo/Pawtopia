@@ -8,7 +8,7 @@
   "roomPrice": "5000",
   "roomCheckIn": "After 1pm",
   "roomCheckOut": "Before 12 noon",
-  "roomPackageInfo": "Daily premium, grain-free kibbles \r\nDaycare with playtime and fun activities at our indoor playground\r\nPeriodic updates with photos and videos\r\nDaily walk\r\nFresh bed and blanket\r\nComplimentary bath and brush when you stay more than 6 nights\r"
+  "roomPackageInfo": "Daily premium, grain-free kibbles. \nDaycare with playtime and fun activities at our indoor playground and pool. \nPeriodic updates with photos and videos. \nDaily walk. \nFresh bed and blankets. \nComplimentary bath and brush when you stay more than 6 nights. "
 },{
   "_id": {
     "$oid": "644284361fdd74e617c693bf"
@@ -19,7 +19,7 @@
   "roomPrice": "9000",
   "roomCheckIn": "After 1pm",
   "roomCheckOut": "Before 12 noon",
-  "roomPackageInfo": "Daily premium, grain-free kibbles \nDaycare with playtime and fun activities at our indoor playground\nPeriodic updates with photos and videos\nDaily walk and brushing\nFresh bed and blanket\nComplimentary bath when you stay more than 3 nights\n"
+  "roomPackageInfo": "Daily premium, grain-free kibbles. \nDaycare with playtime and fun activities at our indoor playground and pool. \nPeriodic updates with photos and videos. \nDaily walk and brushing. \nFresh bed and blanket. \nComplimentary bath when you stay more than 3 nights. "
 },{
   "_id": {
     "$oid": "644284361fdd74e617c693c0"
@@ -30,5 +30,5 @@
   "roomPrice": "12000",
   "roomCheckIn": "After 1pm",
   "roomCheckOut": "Before 12 noon",
-  "roomPackageInfo": "Daily premium, grain-free kibbles \nDaycare with playtime and fun activities at our indoor playground\nPeriodic updates with photos and videos\nDaily walk\nFresh bed and blanket\nComplimentary bath and daily brushing\n"
+  "roomPackageInfo": "Daily premium, grain-free kibbles. \nDaycare with playtime and fun activities at our indoor playground and pool. \nPeriodic updates with photos and videos. \nDaily walk. \nFresh bed and blanket. \nComplimentary bath and daily brushing. \n"
 }]

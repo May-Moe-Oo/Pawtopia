@@ -38,24 +38,18 @@ const createBooking = async (req, res) => {
   }
 };
 
-
 const displayUserBookings = async (req, res) => {
   try {
     const { id } = req.params;
-    const findBookings = await Booking.find({ usersName: id });
-    console.log("Controller User's Booking data are " + findBookings);
-    res.status(200).send(findBookings);
-  }catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
+    // const findBookings = await Booking.find({ usersName: id });
+    const findBookings = await Booking.find({ usersName: id })
+      .populate("usersName")
+      .populate("roomsName")
+      .populate("petsName")
+      .exec();
 
-//! Index show pet at pet page thats under userID
-const showUserPet = async (req, res) => {
-  console.log("1: index " + req.body.User_ID);
-  try {
-    const foundPet = await Pet.find({ User_ID: req.params.userId });
-    res.status(200).send(foundPet);
+    res.status(200).send(findBookings);
+    console.log("Controller User's Booking data are " + findBookings);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

@@ -21,9 +21,9 @@ function RoomCard() {
     const onclick = (id) => setSelectedRoom(rooms.find((rm)=>rm._id === id));
 
     return (
-        <div>
+        <div className="flex">
             {rooms ? rooms.map((r) => (
-                <div key={r._id} className="card card-compact w-96 bg-base-100">
+                <div key={r._id} className="card card-compact w-96 bg-base-100 mx-10">
                     <div onMouseOver={() => onclick(r._id)}>
                         <Link to={`/rooms/${r._id}`}>
                             <figure> <img height="20"src={r.roomImageUrl} alt={r.roomName}/> </figure>
