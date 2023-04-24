@@ -46,10 +46,11 @@ function App() {
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/rooms/:id" element={<RoomsInfo user={user} />} />
         
-        {/* <Route path="/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} />  */}
-        <Route path="/bookings/bookingForm" element={<NewBooking user={user} />} />  {/* to replace later */}
+        <Route path="/bookings/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} /> 
+        {/* <Route path="/bookings/bookingForm" element={<NewBooking user={user} />} />   */} 
+        {/* to replace later */}
         
-        <Route path="/booking" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
+        <Route path="/MyBookings" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/:id/edit" element={user ? <PetsEditForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />

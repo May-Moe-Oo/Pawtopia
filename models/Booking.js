@@ -11,23 +11,25 @@ const bookingSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "Room",
+      required: true,
     },
   ],
 
   bookingStartDate: {
     type: Date,
-    required: true,
+    // required: true,
   },
 
   bookingEndDate: {
     type: Date,
-    required: true,
+    // required: true,
   },
 
   petsName: [
     {
       type: Schema.Types.ObjectId,
       ref: "Pet",
+      required: true,
     },
   ],
 

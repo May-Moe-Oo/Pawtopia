@@ -6,8 +6,20 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const create = async (req, res) => {
   const { password } = req.body;
   if (password.length < 5) {
-    res.status(400).json({ message: "Password is too Short, Please Try Again." });
+    res
+      .status(400)
+      .json({
+        message:
+          "Password is too Short, Please ensure is at least min of 5 characters.",
+      });
     return;
+  }if (password.length > 100) {
+    return res
+      .status(400)
+      .json({
+        error:
+          "Your password is too long, more than 100 characters. Please keep it within 5-100 characters.",
+      });
   }
 
   try {
