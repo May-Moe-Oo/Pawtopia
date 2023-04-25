@@ -8,25 +8,15 @@ function RoomsInfo({user, room, setRoom}) {
     const navigate = useNavigate();
     const { id } = useParams();
     // const [room, setRoom] = useState({});
-    console.log("1. room: " + room)
       // fetch a room's information 
     useEffect(() => {
         const fetchRoom = async () => {
         const response = await fetch(`/api/rooms/${id}`); 
-        console.log("1. Res = "+ response);
-        console.log("2. Room's Data = "+ response.data);
         const roomData = await response.json();
-        console.log("3. roomData = "+ roomData);
         setRoom(roomData);
         }; 
         fetchRoom();
     }, [id]);
-  
-  // const navigateBookingForm = () => {
-  //   navigate("/bookings/bookingForm", {
-  //     state: { room, setRoom },
-  //   });
-  // };
   
     console.log("2. room: " + room)
     console.log("2. setRoom: " + setRoom)
@@ -56,12 +46,12 @@ function RoomsInfo({user, room, setRoom}) {
                 <h2 className='text-xl'>{room.roomCheckOut}</h2>
                 <h2 className='text-xl'>{room.roomPackageInfo}</h2> 
                 <br/>
-
+                {/* {JSON.stringify(room)}
+                {JSON.stringify(setRoom)} */}
                 <div className="card-actions justify-start"> 
-                     <Link to={`/bookings/bookingForm`}> 
+                   <Link to={`/bookings/bookingForm/rooms/${id}`}> 
                      <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg " >Book Now </button>
-                     </Link>
-                     {/* <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" onClick={navigateBookingForm}>Book Now </button> */}
+                   </Link>
                 </div>
                 <br/>
 

@@ -27,7 +27,7 @@ import PageNotFound from "../../components/PageNotFound/PageNotFound";
 function App() {
   const [user, setUser] = useState(getUser());
   const [room, setRoom] = useState({});
-
+  
   console.log("user: " + user);
   console.log("setUser: " + setUser);
   return (
@@ -38,7 +38,7 @@ function App() {
       <div className='Routes'>
       <Routes>
         <Route path="/*" element={<PageNotFound />} />
-        <Route path="/" element={<HomePage user={user} />} />
+        <Route path="/" element={<HomePage user={user}/>} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/users/signup" element={<SignUpForm setUser={setUser} />} />
@@ -48,8 +48,8 @@ function App() {
         <Route path="/rooms" element={<Rooms />} />
 
         <Route path="/rooms/:id" element={<RoomsInfo user={user} room={room} setRoom={setRoom}/>} />
-        <Route path="/bookings/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} /> 
-        
+        {/* <Route path="/bookings/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} />  */}
+        <Route path="/bookings/bookingForm/rooms/:id" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} />
         <Route path="/MyBookings" element={user ? <MyBookings user={user} /> : <AccessDeniedMsg />} /> 
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />

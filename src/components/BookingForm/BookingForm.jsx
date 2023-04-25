@@ -1,36 +1,28 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { differenceInCalendarDays, format } from 'date-fns';
+import { useNavigate, useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { differenceInCalendarDays, isToday } from 'date-fns';
 
 function BookingForm({user}) {
   const navigate = useNavigate();
-console.log("1. user is " + user);
+  const { id } = useParams();
 //! ------------------------------------------------------------------
   const [pets, setPets] = useState([]); 
   useEffect(() => {
     const fetchingPet = async (req, res) => {
       const response = await fetch(`/api/bookings/${user._id}/guestPet`);
-      console.log("1. Response is "+response);
       const petData = await response.json();
-      console.log("2. petData Response is "+ petData);
       setPets(petData);
     };
     fetchingPet();
   }, []);
-  console.log("user is " + user);
 //! ------------------------------------------------------------------
-
-//  const roomMapping = {
-//   "644284361fdd74e617c693be": "Standard Suite", 
-//   "644284361fdd74e617c693bf":"Dreamy Suite",
-//   "644284361fdd74e617c693c0":"Presidential Suite"
-//  }
 const [selectedRoom, setSelectedRoom] = useState([]); 
 
   useEffect(() => {
     const fetchingRoom = async (req, res) => {
-      const response = await fetch(`/api/bookings/${user._id}/selectedRoom`);
+      const response = await fetch(`/api/bookings/rooms/${id}`);
       console.log("1. Response is "+response);
       const selectedRoomData = await response.json();
       console.log("2. selectedRoomData Response is "+ selectedRoomData);
@@ -39,7 +31,7 @@ const [selectedRoom, setSelectedRoom] = useState([]);
     fetchingRoom();
   }, []);
   console.log("The selectedRoom is "+ selectedRoom);
-//! ------------------------------------------------------------------
+// ! ------------------------------------------------------------------
   const [bookings, setBookings] = useState([]);
   const addRoombookings = (roombooking) => setBookings([roombooking, ...bookings]); // add new room booking 
   const [roomBookingData, SetRoomBookingData] = useState({
@@ -50,14 +42,21 @@ const [selectedRoom, setSelectedRoom] = useState([]);
     petsName: "", 
     remarks: "",
   });
-  console.log("Before data is "+ roomBookingData);
+  // console.log("Before data is "+ roomBookingData);
   const disable = !roomBookingData.petsName;
+  // const disableDates =() => {
+  //   today = new Date();
+  //   const day = getDate() + 1;
+  //   const month = getMonth() + 1;
+  //   const year = date.getFullYear();
+  //   return `${day}-${month}-${year}`;
+  // };
 //! ------------------------------------------------------------------
   function handleChange(event) {
     event.preventDefault();
     SetRoomBookingData({ ...roomBookingData, 
       [event.target.name]: event.target.value});
-    console.log("After chg data is" + roomBookingData);
+    // console.log("After chg data is" + roomBookingData);
   }
 //! ------------------------------------------------------------------
   const handleNewRoomBooking = async (event) => {
@@ -71,14 +70,14 @@ const [selectedRoom, setSelectedRoom] = useState([]);
       });
       const roombooking = await response.json();
       addRoombookings(roombooking);
-    console.log("New Room Booking has been Made!");
+    // console.log("New Room Booking has been Made!");
     navigate('/MyBookings'); // MyBookings, show all the booking made by this user
   };
 //! ------------------------------------------------------------------
   function handleSubmitBooking(event) {
     event.preventDefault();
     alert(JSON.stringify(roomBookingData));
-    console.log("Room Booking was Submitted!");
+    // console.log("Room Booking was Submitted!");
   };
 //! ------------------------------------------------------------------
    let numberOfNights = 0;
@@ -101,16 +100,17 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                 </h1>
                 <h1 className="hidden">Customer ID: {user._id}</h1>
                 <br/> 
-                <h1 className="text-xl font-bold" 
+                <h1 className="text-xl" 
                     name="roomsName"
-                    value={roomBookingData.roomName}>
-                    Selected Room Name: {selectedRoom.roomName}
-                </h1> {/* not working yet */}
-
-                
+                    required
+                    value={roomBookingData.roomName}
+                    >
+                    Selected Room: {selectedRoom.roomName}
+                </h1> 
+                <h1 className="">Room ID: {roomBookingData._id}</h1>
                 <br/>
                     {/* to insert the selected room name here */}
-                <span className="label-text">Type of Room:  </span>
+                {/* <span className="label-text">Type of Room:  </span>
                 <select 
                     name="roomsName"
                     required
@@ -122,13 +122,14 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                       <option value="644284361fdd74e617c693bf">Dreamy Suite</option>
                       <option value="644284361fdd74e617c693c0">Presidential Suite</option>
                 </select>
-                <br/>
+                <br/> */}
 
                 <div >
                   <span className="label-text">Check In date </span>
                   <input 
                     type="date" 
                     name="bookingStartDate"
+                    min={new Date().toISOString().substr(0, 10)}
                     value={roomBookingData.bookingStartDate}
                     required
                     onChange={handleChange} 
@@ -140,9 +141,10 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                   <input 
                     type="date" 
                     name="bookingEndDate"
+                    min={new Date().toISOString().substr(0, 10)}
                     value={roomBookingData.bookingEndDate}
                     required
-                    onChange={handleChange} 
+                    onChange={handleChange}
                     className="border my-2 p-2 p-x rounded-2xl w-full max-w-xs"/>
                 </div>
                     <br/>

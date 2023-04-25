@@ -16,11 +16,13 @@ const bookingSchema = new Schema({
   bookingStartDate: {
     type: Date,
     required: true,
+    min: new Date(),
   },
 
   bookingEndDate: {
     type: Date,
     required: true,
+    min: new Date(),
   },
 
   petsName: {
