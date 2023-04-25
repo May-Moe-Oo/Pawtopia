@@ -30,7 +30,7 @@ function NavBar({user, setUser}) {
     <ul className="menu menu-horizontal px-4 py-6">
       <li><Link to={`/aboutus`} className="link-secondary tab tab-lg tab-lifted mx-4">About Us</Link></li>
       <li><Link to={`/rooms`} className="link-secondary tab tab-lg tab-lifted mx-4">Rooms</Link></li>
-      <li><Link to={`/contactus`} className="link-secondary tab tab-lg tab-lifted mx-4" >Contact Us!</Link></li>
+      <li><Link to={`/contactus`} className="link-secondary tab tab-lg tab-lifted mx-4" >Contact Us</Link></li>
     </ul>
   </div>
 <div className="navbar-end">

@@ -1,23 +1,44 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { differenceInCalendarDays } from 'date-fns';
+import { differenceInCalendarDays, format } from 'date-fns';
 
 function BookingForm({user}) {
   const navigate = useNavigate();
-
+console.log("1. user is " + user);
+//! ------------------------------------------------------------------
   const [pets, setPets] = useState([]); 
   useEffect(() => {
-    const fetchPeting = async (req, res) => {
+    const fetchingPet = async (req, res) => {
       const response = await fetch(`/api/bookings/${user._id}/guestPet`);
       console.log("1. Response is "+response);
       const petData = await response.json();
       console.log("2. petData Response is "+ petData);
       setPets(petData);
     };
-    fetchPeting();
+    fetchingPet();
   }, []);
   console.log("user is " + user);
+//! ------------------------------------------------------------------
+
+//  const roomMapping = {
+//   "644284361fdd74e617c693be": "Standard Suite", 
+//   "644284361fdd74e617c693bf":"Dreamy Suite",
+//   "644284361fdd74e617c693c0":"Presidential Suite"
+//  }
+const [selectedRoom, setSelectedRoom] = useState([]); 
+
+  useEffect(() => {
+    const fetchingRoom = async (req, res) => {
+      const response = await fetch(`/api/bookings/${user._id}/selectedRoom`);
+      console.log("1. Response is "+response);
+      const selectedRoomData = await response.json();
+      console.log("2. selectedRoomData Response is "+ selectedRoomData);
+      setSelectedRoom(selectedRoomData);
+    };
+    fetchingRoom();
+  }, []);
+  console.log("The selectedRoom is "+ selectedRoom);
 //! ------------------------------------------------------------------
   const [bookings, setBookings] = useState([]);
   const addRoombookings = (roombooking) => setBookings([roombooking, ...bookings]); // add new room booking 
@@ -80,8 +101,16 @@ function BookingForm({user}) {
                 </h1>
                 <h1 className="hidden">Customer ID: {user._id}</h1>
                 <br/> 
-                    {/*  */}
-                <span className="label-text">Type of Room </span>
+                <h1 className="text-xl font-bold" 
+                    name="roomsName"
+                    value={roomBookingData.roomName}>
+                    Selected Room Name: {selectedRoom.roomName}
+                </h1> {/* not working yet */}
+
+                
+                <br/>
+                    {/* to insert the selected room name here */}
+                <span className="label-text">Type of Room:  </span>
                 <select 
                     name="roomsName"
                     required
@@ -94,6 +123,7 @@ function BookingForm({user}) {
                       <option value="644284361fdd74e617c693c0">Presidential Suite</option>
                 </select>
                 <br/>
+
                 <div >
                   <span className="label-text">Check In date </span>
                   <input 

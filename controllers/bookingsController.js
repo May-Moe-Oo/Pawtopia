@@ -14,19 +14,18 @@ const getpets = async (req, res) => {
   }
 };
 
-// const getRooms = async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const findRooms = await Booking.findById({
-//       roomsName: req.params.roomName,
-//     });
-//     res.status(201).json(findRooms);
-
-//     console.log(findRooms);
-//   } catch {
-//     res.status(500).json(error);
-//   }
-// };
+const getRooms = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log("room req.params is " + req.params);
+    // in the Room/booking model, find the room id 
+    const findRooms = await Room.find({id});
+    res.status(201).json(findRooms);
+    console.log(findRooms);
+  } catch {
+    res.status(500).json(error);
+  }
+};
 
 const createBooking = async (req, res) => {
   try {
@@ -41,7 +40,7 @@ const createBooking = async (req, res) => {
 const displayUserBookings = async (req, res) => {
   try {
     const { id } = req.params;
-    // const findBookings = await Booking.find({ usersName: id });
+    // in booking model, find user id to find the user name, room name and pet name. 
     const findBookings = await Booking.find({ usersName: id })
       .populate("usersName")
       .populate("roomsName")
@@ -57,7 +56,7 @@ const displayUserBookings = async (req, res) => {
 
 module.exports = {
   getpets,
-  // getRooms,
+  getRooms,
   createBooking,
   displayUserBookings,
 };

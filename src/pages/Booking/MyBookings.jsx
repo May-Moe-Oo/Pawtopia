@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import UserNavbar from "../../components/UserNavbar/UserNavbar";
 import BookingTable from "../../components/BookingTable/BookingTable";
 
-function Booking({user}) {
+function MyBookings({user}) {
     return (
         <div>
             <div className="drawer drawer-mobile">
@@ -24,4 +24,4 @@ function Booking({user}) {
     );
 }
 
-export default Booking;
+export default MyBookings;

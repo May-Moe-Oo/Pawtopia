@@ -15,7 +15,7 @@ import UserProfile from "../AuthPage/UserProfile";
 import Rooms from "../Rooms/RoomsAvil";
 import RoomsInfo from "../Rooms/RoomsInfo";
 import NewBooking from "../Booking/NewBooking";
-import Booking from "../Booking/Booking";
+import MyBookings from "../Booking/MyBookings";
 import Pets from "../Pets/Pets"
 import PetsCreateForm from "../Pets/PetsCreateForm";
 import PetsEditForm from "../Pets/PetsEditForm";
@@ -26,6 +26,8 @@ import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
 function App() {
   const [user, setUser] = useState(getUser());
+  const [room, setRoom] = useState({});
+
   console.log("user: " + user);
   console.log("setUser: " + setUser);
   return (
@@ -44,17 +46,14 @@ function App() {
         <Route path="/users/logout" element={<LogOutMsg />} />
         <Route path="/users/profile" element={user ? <UserProfile user={user}/>: <AccessDeniedMsg />} /> 
         <Route path="/rooms" element={<Rooms />} />
-        <Route path="/rooms/:id" element={<RoomsInfo user={user} />} />
-        
+
+        <Route path="/rooms/:id" element={<RoomsInfo user={user} room={room} setRoom={setRoom}/>} />
         <Route path="/bookings/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} /> 
-        {/* <Route path="/bookings/bookingForm" element={<NewBooking user={user} />} />   */} 
-        {/* to replace later */}
         
-        <Route path="/MyBookings" element={user ? <Booking user={user} /> : <AccessDeniedMsg />} /> 
+        <Route path="/MyBookings" element={user ? <MyBookings user={user} /> : <AccessDeniedMsg />} /> 
         <Route path="/pets" element={user ? <Pets user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/new" element={user ? <PetsCreateForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
         <Route path="/pets/:id/edit" element={user ? <PetsEditForm user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
-        {/* <Route path="/pets/petID/:id" element={user ? <PetInfo user={user} setUser={setUser}/> : <AccessDeniedMsg />} /> */}
         <Route path="/pets/user/:id" element={user ? <PetInfo user={user} setUser={setUser}/> : <AccessDeniedMsg />} />
       </Routes>
       </div>

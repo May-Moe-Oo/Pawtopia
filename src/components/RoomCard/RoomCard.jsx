@@ -37,7 +37,7 @@ function RoomCard() {
                     </div>
                 </div>
             )) : 
-            <div>
+            <div className="flex align-content: space-around">
                 <h1>Sorry, No rooms are available at the moment.</h1>
             </div>
             }

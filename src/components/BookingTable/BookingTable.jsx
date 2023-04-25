@@ -11,15 +11,38 @@ function BookingTable({user}) {
         const response = await fetch(`/api/bookings/${user._id}/MyBookings`);
         const bookingsData = await response.json();
         console.log("user's pet booking Data" + bookingsData)
+
+        //  format date data 
+        bookingsData.forEach(booking =>{
+            const date = new Date(booking.bookingStartDate);
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            const formattedDate = `${day}-${month}-${year}`;
+            booking.bookingStartDate = formattedDate; 
+        })
+        
+        bookingsData.forEach(booking =>{
+            const date = new Date(booking.bookingEndDate);
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            const formattedDate = `${day}-${month}-${year}`;
+            booking.bookingEndDate = formattedDate; 
+        })
         setBookings(bookingsData);
         };
         fetchBookings();
     },[]);
 
+
     return (
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
                 {/* header row */}
+                {/* {JSON.stringify(bookings[0])} {JSON.stringify(bookings[1])} */}
+                {/* {JSON.stringify(bookings[0].bookingStartDate)} and 
+                {JSON.stringify(bookings[0].bookingEndDate)} */}
                 <thead>
                 <tr>
                     <th>Pet Name</th>
@@ -35,14 +58,7 @@ function BookingTable({user}) {
                 <tr>
                     <td>
                     <div className="flex items-center space-x-3">
-                        {/* <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                            <img src="{roomBooked.petsName.petImageUrl}" alt="{roomBooked.petsName}" />
-                        </div>
-                        </div> */}
-                        <div>
                         <div className="font-bold">{roomBooked.petsName?.petName}</div>
-                        </div>
                     </div>
                     </td>
                     <td> {roomBooked.roomsName?.roomName} </td>

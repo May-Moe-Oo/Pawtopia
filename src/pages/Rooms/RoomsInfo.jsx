@@ -1,13 +1,14 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import UserNavbar from "../../components/UserNavbar/UserNavbar";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
+// import UserNavbar from "../../components/UserNavbar/UserNavbar";
 
-function RoomsInfo({user}) {
+function RoomsInfo({user, room, setRoom}) {
+    const { state } = useLocation();
     const navigate = useNavigate();
     const { id } = useParams();
-    const [room, setRoom] = useState({});
-    
+    // const [room, setRoom] = useState({});
+    console.log("1. room: " + room)
       // fetch a room's information 
     useEffect(() => {
         const fetchRoom = async () => {
@@ -20,7 +21,15 @@ function RoomsInfo({user}) {
         }; 
         fetchRoom();
     }, [id]);
-
+  
+  // const navigateBookingForm = () => {
+  //   navigate("/bookings/bookingForm", {
+  //     state: { room, setRoom },
+  //   });
+  // };
+  
+    console.log("2. room: " + room)
+    console.log("2. setRoom: " + setRoom)
     if (Object.keys(room).length === 0) {
     return (
       <> <p>No Information Avaliable yet</p> 
@@ -48,10 +57,11 @@ function RoomsInfo({user}) {
                 <h2 className='text-xl'>{room.roomPackageInfo}</h2> 
                 <br/>
 
-                <div className="card-actions justify-start">
+                <div className="card-actions justify-start"> 
                      <Link to={`/bookings/bookingForm`}> 
-                     <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Book Now </button>
+                     <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg " >Book Now </button>
                      </Link>
+                     {/* <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg" onClick={navigateBookingForm}>Book Now </button> */}
                 </div>
                 <br/>
 
