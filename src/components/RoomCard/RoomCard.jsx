@@ -21,12 +21,15 @@ function RoomCard() {
     const onclick = (id) => setSelectedRoom(rooms.find((rm)=>rm._id === id));
 
     return (
-        <div className="flex">
+        <div className="flex align-content: space-around">
             {rooms ? rooms.map((r) => (
-                <div key={r._id} className="card card-compact w-96 bg-base-100 mx-10">
+                <div key={r._id} className="card card-compact w-full bg-base-100 mx-10">
                     <div onMouseOver={() => onclick(r._id)}>
                         <Link to={`/rooms/${r._id}`}>
-                            <figure> <img height="20"src={r.roomImageUrl} alt={r.roomName}/> </figure>
+                            <figure> 
+                                <img src={r.roomImageUrl} alt={r.roomName}/> 
+                            </figure>
+                            <br/>
                             <div className="card-body items-center text-center">
                             <h2 className="card-title"> {r.roomName} </h2>
                             </div>

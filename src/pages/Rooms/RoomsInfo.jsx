@@ -8,7 +8,7 @@ function RoomsInfo({user}) {
     const { id } = useParams();
     const [room, setRoom] = useState({});
     
-      // fetch a room's information based on a specific id passed as a dependency
+      // fetch a room's information 
     useEffect(() => {
         const fetchRoom = async () => {
         const response = await fetch(`/api/rooms/${id}`); 
@@ -59,7 +59,7 @@ function RoomsInfo({user}) {
              </div>
           </div>
           <br/>
-
+          
           <p>add more photo here</p>
           <p>add more info here</p>
         </div> 

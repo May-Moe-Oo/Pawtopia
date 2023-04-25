@@ -6,11 +6,11 @@ import BookingForm from '../../components/BookingForm/BookingForm';
 function NewBooking({user}) {
 
     return (
-        <div>
-            <p>newBooking Page (please login to access)</p>
+        <div className="">
+            <p>newBooking Page (login to access)</p>
+            <p className="text-align-center">(to add the 3 rooms img and names Here)</p>
+
             {user ? ( <BookingForm user={user} /> ) : (null)}  
-            {/* <BookingForm user={user} />  */}
-            {/* to replace */}
         </div>
     );
 }
