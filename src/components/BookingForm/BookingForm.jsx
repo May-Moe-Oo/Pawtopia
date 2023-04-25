@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { differenceInCalendarDays, isToday } from 'date-fns';
 
@@ -84,7 +84,10 @@ const [selectedRoom, setSelectedRoom] = useState([]);
   if (roomBookingData.bookingStartDate && roomBookingData.bookingEndDate) {
     numberOfNights = differenceInCalendarDays(new Date(roomBookingData.bookingEndDate), new Date(roomBookingData.bookingStartDate));
   }
+    const TotalPrice = (selectedRoom.roomPrice * numberOfNights)/100;
 //! ------------------------------------------------------------------
+
+
   return (
       <form onSubmit={handleSubmitBooking} >
         <div className="drawer drawer-mobile">
@@ -149,7 +152,7 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                 </div>
                     <br/>
                 <div>
-                  <p>Numbers of nights selected: 
+                  <p >Numbers of nights selected: 
                     {numberOfNights > 0 && (
                     <span> {numberOfNights} nights</span>
                     )}
@@ -158,6 +161,8 @@ const [selectedRoom, setSelectedRoom] = useState([]);
  
                   {numberOfNights > 0 && (
                   <div>
+                    <p className="text-xl"> Total Estimated Price: S${TotalPrice}  </p>
+                    <br/>
                     <span className="label-text">Paw Guest Name</span>
                     <select 
                       name="petsName"
@@ -191,6 +196,8 @@ const [selectedRoom, setSelectedRoom] = useState([]);
               <p>terms and conditions (WIP)</p>
               <br/>
               <button type="submit" className="btn btn-secondary" disabled={disable} onClick={handleNewRoomBooking} >Confirm Booking</button>
+              <br/>
+              <Link to={`/rooms`}><button className="btn btn-primary">Returns to Rooms</button></Link>
             </div> 
 
           </div>
