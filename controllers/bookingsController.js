@@ -3,9 +3,15 @@ const Pet = require("../models/Pet");
 const User = require("../models/User");
 const Room = require("../models/Room");
 
+// /:id/:name
+// const {id, name} = req.params;
+// const {name, id} = req.params;
+
 const getpets = async (req, res) => {
   try {
+    // {id } = /:id
     const { id } = req.params;
+    // {key: value} pair
     const pets = await Pet.find({ User_ID: id });
     res.status(201).json(pets);
     console.log(pets);
@@ -18,6 +24,7 @@ const getRooms = async (req, res) => {
   try {
     const { id } = req.params;
     // in the Room model, find the room id
+    // findById auto key, so need value only (id).
     const findRooms = await Room.findById(id);
     res.status(201).json(findRooms);
     console.log(findRooms);

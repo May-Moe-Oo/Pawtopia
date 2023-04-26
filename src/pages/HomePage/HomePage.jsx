@@ -4,8 +4,8 @@ import HomePgCarousel from "../../components/HomePgCarousel/HomePgCarousel";
 
 function HomePage() {
     return (
-        <div className="flex flex-col w-full">
-            <HomePgCarousel />
+        <div className="flex flex-col w-full text-center justify-center">
+            <div className="grid place-items-center"><HomePgCarousel /></div>
             <div className="grid h-20 card  rounded-box place-items-center">
                 <h1>A Perfect Pawcation for our Paw Buddies </h1>
             </div> 

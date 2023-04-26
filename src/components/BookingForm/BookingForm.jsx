@@ -95,35 +95,15 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                 </h1>
                 <h1 className="hidden">Customer ID: {user._id}</h1>
                 <br/> 
-                <h1 className="text-xl" 
-                    // name="roomsName"
-                    required
-                    // value={roomBookingData.roomName}
-                    >
+                <h1 className="text-xl" required >
                     Selected Room: 
                     <span className="text-xl font-bold py-2"> {selectedRoom.roomName}</span>
                 </h1> 
-                {/* to fix here, need to have the id as the value of roomBookingData.roomsName */}
                 <h1 
                 name="roomsName"
-                // value={roomBookingData.roomName}
                 className="">Room ID: {selectedRoom._id}</h1>
                 
                 <br/>
-                    {/* to insert the selected room name here */}
-                {/* <span className="label-text">Type of Room:  </span>
-                <select 
-                    name="roomsName"
-                    required
-                    value={roomBookingData.roomName}
-                    onChange={handleChange} 
-                    className="select select-error w-full max-w-xs">
-                      <option disabled selected> Select room name</option>
-                      <option value="644284361fdd74e617c693be">Standard Suite</option>
-                      <option value="644284361fdd74e617c693bf">Dreamy Suite</option>
-                      <option value="644284361fdd74e617c693c0">Presidential Suite</option>
-                </select>
-                <br/> */}
 
                 <div >
                   <span className="label-text">Check In date </span>
