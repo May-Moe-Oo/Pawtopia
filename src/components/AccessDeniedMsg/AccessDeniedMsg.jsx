@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import cat from "../../images/cartoon-cat-thief.jpg";
 import pinkAccessDenied from "../../images/pinkAccessDenied.jpg";
 
 function AccessDeniedMsg() {
@@ -26,7 +25,6 @@ function AccessDeniedMsg() {
              <Link to={`/users/signup`}>
             <button className="btn btn-secondary text-2xl">Create an account</button>
             </Link> 
-            {/* <img src={cat} alt='User Access Denied'></img> */}
             </div>
 </div> 
         </div>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import UserNavbar from "../../components/UserNavbar/UserNavbar";
 import Koby from "../../images/Pets/Koby.jpg"
+import spring from "../../images/spring.jpg";
 
 // /users/profile
 function UserProfile({user, setUser}) {
