@@ -93,7 +93,8 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                 {/* <h1> Check In From - {selectedRoom.roomCheckIn}</h1>
                 <h1> Check Out By - {selectedRoom.roomCheckOut}</h1> */}
                 <br/>
-                <h1 className="text-xl font-bold">Customer Name: {user.name}</h1>
+                <h1 className="text-xl">Customer Name: 
+                <span className="text-xl font-bold py-2"> {user.name}</span></h1>
                 <h1 className="hidden">Customer ID: {user._id}</h1>
                 <br/> 
                 <div >
@@ -105,7 +106,7 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                     value={roomBookingData.bookingStartDate}
                     required
                     onChange={handleChange} 
-                    className="border my-4 p-2 p-x rounded-2xl w-full max-w-xs"/>
+                    className="border my-4 p-2 p-x rounded-2xl w-full max-w-xs font-bold"/>
                 </div>
 
                 <div >
@@ -117,7 +118,7 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                     value={roomBookingData.bookingEndDate}
                     required
                     onChange={handleChange}
-                    className="border my-2 p-2 p-x rounded-2xl w-full max-w-xs"/>
+                    className="border my-2 p-2 p-x rounded-2xl w-full max-w-xs font-bold"/>
                 </div>
 
                 <div>
@@ -129,22 +130,30 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                     )}
 
                   {numberOfNights > 0 && (
-                  <p className="my-3">Numbers of nights selected: <span> {numberOfNights} nights</span> </p>
+                  <p className="my-3">Numbers of nights selected: <span className='font-bold'> {numberOfNights}</span> nights</p>
                   )}
                   <br/>
  
                   {numberOfNights > 0 && (
                   <div>
-                    <p className="text-xl"> Total Estimated Price: S${TotalPrice}  </p>
+                    <p className="text-xl mt-2"> Total Estimated Price: S${TotalPrice}  </p>
                     <br/>
+                    {pets.length === 0 ? (
+                        <div className='text text-center'>
+                            <h1 className='text-xl font-bold'>You have not register any Pet yet.</h1>
+                            <h1 className='text-xl font-bold my-5'>Please add before booking a room reservations.</h1>
+                            <Link to={`/pets/new`}> <button className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Add My Paw Buddy's information</button></Link>
+                        </div>
+                    ) : (
+                      <div>
                     <label className="label label-text text-xl mt-5">Paw Guest Name</label>
                     <select 
                       name="petsName"
                       required
                       value={roomBookingData.petName}
                       onChange={handleChange} 
-                      className="select select-error w-full max-w-xs">
-                        <option disabled selected className='text-xl'>Select pet staying</option>
+                      className="select select-error w-full max-w-xs font-bold">
+                        <option disabled selected className='text-xl'>Select the pet who is staying</option>
                         {pets.map((p) => (
                           <option 
                           className='text-xl'
@@ -153,6 +162,8 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                           </option>
                         ))}
                     </select>
+                    </div>
+                    )}
                     <br/>
                     <label className="label label-text text-xl mt-5">Additional Remarks</label>
                     <textarea 

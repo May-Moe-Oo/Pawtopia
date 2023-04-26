@@ -25,7 +25,11 @@ function Pets({user}) {
                     <Link to={`/pets/new`}> <button className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Add My Paw Buddy's information</button></Link>
                     <br />
                     {pets.length === 0 ? (
-                        <h1>No Pet has been registered</h1>
+                        <div className='text text-center'>
+                            <h1 className='text-3xl font-bold'>Sorry, no Pet has been registered.</h1>
+                            <h1 className='text-2xl font-bold mt-5'>Please add before booking a room reservation.</h1>
+                        </div>
+                        
                     ) : (
                         <PetCard pets={pets} userID={user._id} />
                     )}
@@ -35,9 +39,8 @@ function Pets({user}) {
                 <br/>
                 <UserNavbar user={user}/>
             </div>           
-            
         </div>
-    );
-}
+    )
+};
 
 export default Pets;

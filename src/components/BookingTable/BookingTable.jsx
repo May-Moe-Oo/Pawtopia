@@ -38,7 +38,7 @@ function BookingTable({user}) {
 
 
     return (
-        <div className="flex justify-content-center overflow-x-auto w-full">
+        <div className="flex justify-content-center overflow-x-auto">
             <table className="table table-compact">
                 {/* header row */}
                 <thead>
@@ -48,6 +48,7 @@ function BookingTable({user}) {
                     <th className="text-xl font-bold">From (date)</th>
                     <th className="text-xl font-bold">To (date)</th>
                     <th className="text-xl font-bold">Remarks</th>
+                    <th className="text-xl font-bold hidden">Booking ID</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -68,6 +69,7 @@ function BookingTable({user}) {
                     <td className="text-xl"> {roomBooked.bookingStartDate} </td>
                     <td className="text-xl"> {roomBooked.bookingEndDate} </td>
                     <td className="text-xl"> {roomBooked.remarks} </td>
+                    <td className="text-xl hidden"> {roomBooked._id} </td>
                     </tr>
                 )): 
                  <tr> <td> No Records found </td> </tr>

@@ -53,8 +53,8 @@ if (Object.keys(pet).length === 0) {
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure> <img className="image-wrapper" height="20"src={pet.petImageUrl} alt={pet.petName}/> </figure>
             <div className="card-body">
-                <h1 className="card-title">{pet.petName}</h1>
-                <p>{pet.petGender}, {pet.petBreed}</p>
+                <h1 className="card-title text-5xl font-bold">{pet.petName}</h1>
+                <p className='text-2xl my-2'>{pet.petGender}, {pet.petBreed}</p>
                     <div className="card-actions justify-end">
                      <Link to={`/pets/${pet._id}/edit`}> 
                      <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Edit</button>
