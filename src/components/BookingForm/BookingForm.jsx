@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
 import { differenceInCalendarDays, isToday } from 'date-fns';
 
 function BookingForm({user}) {
@@ -36,21 +35,13 @@ const [selectedRoom, setSelectedRoom] = useState([]);
   const addRoombookings = (roombooking) => setBookings([roombooking, ...bookings]); // add new room booking 
   const [roomBookingData, SetRoomBookingData] = useState({
     usersName: user._id, 
-    roomsName: "", 
+    roomsName: id, 
     bookingStartDate: Date,
     bookingEndDate: Date,
     petsName: "", 
     remarks: "",
   });
-  // console.log("Before data is "+ roomBookingData);
   const disable = !roomBookingData.petsName;
-  // const disableDates =() => {
-  //   today = new Date();
-  //   const day = getDate() + 1;
-  //   const month = getMonth() + 1;
-  //   const year = date.getFullYear();
-  //   return `${day}-${month}-${year}`;
-  // };
 //! ------------------------------------------------------------------
   function handleChange(event) {
     event.preventDefault();
@@ -98,7 +89,7 @@ const [selectedRoom, setSelectedRoom] = useState([]);
               <div className="form-control w-full max-w-xs">
                 <h1 className="text-xl font-bold" 
                     name="usersName"
-                    value={roomBookingData.usersName}
+                    // value={roomBookingData.usersName}
                     >
                       Customer Name: {user.name}
                 </h1>
@@ -115,7 +106,7 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                 {/* to fix here, need to have the id as the value of roomBookingData.roomsName */}
                 <h1 
                 name="roomsName"
-                value={roomBookingData.roomName}
+                // value={roomBookingData.roomName}
                 className="">Room ID: {selectedRoom._id}</h1>
                 
                 <br/>
