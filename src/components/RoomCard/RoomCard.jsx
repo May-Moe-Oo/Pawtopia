@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./roomCard.css"
 
 function RoomCard() {
     //! show the list of room 
@@ -20,18 +21,18 @@ function RoomCard() {
 
     const onclick = (id) => setSelectedRoom(rooms.find((rm)=>rm._id === id));
 
-    return (
+return (
         <div className="flex align-content: space-around">
             {rooms ? rooms.map((r) => (
                 <div key={r._id} className="card card-compact w-full bg-base-100 mx-10">
                     <div onMouseOver={() => onclick(r._id)}>
                         <Link to={`/rooms/${r._id}`}>
                             <figure> 
-                                <img src={r.roomImageUrl} alt={r.roomName}/> 
+                                <img src={r.roomImageUrl} alt={r.roomName} className="room-image"/> 
                             </figure>
                             <br/>
                             <div className="card-body items-center text-center">
-                            <h2 className="card-title"> {r.roomName} </h2>
+                            <h2 className="card-title text-3xl"> {r.roomName} </h2>
                             </div>
                         </Link>
                     </div>

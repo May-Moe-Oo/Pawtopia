@@ -4,6 +4,7 @@ import vacation from '../../images/rooms/vacation.jpg';
 import playground from '../../images/rooms/playground.jpg';
 import Dailywalk from '../../images/rooms/Dailywalk.png';
 import ThreePoolDogs from '../../images/rooms/ThreePoolDogs.jpg';
+import dogs from '../../images/rooms/dogs.jpg';
 
 function RoomPgCarousel() {
     return (
@@ -11,7 +12,7 @@ function RoomPgCarousel() {
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={Dailywalk} className="w-full" alt="Daily walks"/>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide5" className="btn btn-circle">❮</a> 
+                <a href="#slide6" className="btn btn-circle">❮</a> 
                 <a href="#slide2" className="btn btn-circle">❯</a>
                 </div>
             </div> 
@@ -37,9 +38,16 @@ function RoomPgCarousel() {
                 </div>
             </div>
             <div id="slide5" className="carousel-item relative w-full">
-                <img src={vacation} className="w-full" alt="Ready for Pawcation"/>
+                <img src={dogs} className="w-full" alt="dogs"/>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                 <a href="#slide4" className="btn btn-circle">❮</a> 
+                <a href="#slide6" className="btn btn-circle">❯</a>
+                </div>
+            </div>
+                <div id="slide6" className="carousel-item relative w-full">
+                <img src={vacation} className="w-full" alt="Ready for Pawcation"/>
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide5" className="btn btn-circle">❮</a> 
                 <a href="#slide1" className="btn btn-circle">❯</a>
                 </div>
             </div>

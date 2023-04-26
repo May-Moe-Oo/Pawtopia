@@ -8,9 +8,8 @@ function RoomsAvil() {
             <div className="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-start">
-                    <h1 className="text-3xl font-bold my-12 py-2">Our rooms are designed to ensure your Paw Buddies feel just like they're at home.</h1>
-                    <RoomCard/>
-                    <br/>
+                    <h1 className="text-4xl font-bold my-12 py-2">Our rooms are designed to ensure your Paw Buddies feel just like they're at home.</h1>
+                    <div className="mb-10"> <RoomCard /></div>
                     <RoomPgCarousel/>
                 </div> 
             </div>  

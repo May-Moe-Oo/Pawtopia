@@ -5,9 +5,9 @@ import Daisy from "../../images/Pets/Daisy.jpg"
 function AboutUs() {
     return (
         <div className="hero min-h-screen bg-base-200 align-items-start">
-            <div className="hero-content flex-col lg:flex-row">
+            <div className="hero-content flex-col lg:flex-row mb-10">
                 <img src={Daisy} alt="Happy" className="max-w-sm rounded-lg shadow-2xl" />
-            <div >
+            <div className="m-5 mb-12">
             <h1 className="text-4xl font-bold">To Reciprocate Their Unconditional Love! </h1> <br />
             <h2 className="text-3xl py-2">We Make all our Paw Buddies Happy!</h2> <br/>
             <h2 className="text-3xl py-2">At Pawtopia, we treat every dog as precious baby and our best friend because we know how much they mean to you.</h2> <br/>
