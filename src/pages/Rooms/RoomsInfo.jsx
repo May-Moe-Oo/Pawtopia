@@ -16,13 +16,14 @@ function RoomsInfo({user, room, setRoom}) {
         setRoom(roomData);
         }; 
         fetchRoom();
+        // console.log(JSON.stringify(roomData));
     }, [id]);
   
     console.log("2. room: " + room)
     console.log("2. setRoom: " + setRoom)
     if (Object.keys(room).length === 0) {
     return (
-      <> <p>No Information Avaliable yet</p> 
+      <> <p className="text-xl mt-5 items-center justify-start">No Information Avaliable yet</p> 
       </>
     );
   } else {
@@ -30,9 +31,7 @@ function RoomsInfo({user, room, setRoom}) {
         <div className="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-start">
-          {/* <h1 className="card-title text-secondary">{room.roomName}</h1>  */}
           <br/>
-
           <div className="card lg:card-side bg-base-100 shadow-xl">
             
             <figure> <img height="20"src={room.roomImageUrl} alt={room.roomName}/> </figure>
@@ -42,26 +41,18 @@ function RoomsInfo({user, room, setRoom}) {
                 <br/>
                 <h2 className="text-secondary text-2xl font-bold">Room Details:</h2>
                 <h2 className='text-xl'>{room.roomSize}</h2>
-                <h2 className='text-xl'>{room.roomCheckIn}</h2>
-                <h2 className='text-xl'>{room.roomCheckOut}</h2>
+                <h2 className='text-xl'>Check in: {room.roomCheckIn}</h2>
+                <h2 className='text-xl'>Check out: {room.roomCheckOut}</h2>
                 <h2 className='text-xl'>{room.roomPackageInfo}</h2> 
                 <br/>
-                {/* {JSON.stringify(room)}
-                {JSON.stringify(setRoom)} */}
                 <div className="card-actions justify-start"> 
                    <Link to={`/bookings/bookingForm/rooms/${id}`}> 
                      <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg " >Book Now </button>
                    </Link>
                 </div>
-                <br/>
-
-                <h1>If you have any inquiry, feel free to<span className="link-info"><Link to={`/contactus`}> contact us</Link></span>.</h1>
+                <h1 className="my-8 text-xl">If you have any inquiry, feel free to<span className="link-info"><Link to={`/contactus`}> contact us</Link></span>.</h1>
              </div>
           </div>
-          <br/>
-          
-          <p>add more photo here</p>
-          <p>add more info here</p>
         </div> 
         </div>
     );

@@ -57,7 +57,7 @@ function NavBar({user, setUser}) {
         {user ? ( <>
         <li><Link to={`/users/profile`} className="justify-between">My Profile</Link></li>
         <li><Link to={`/pets`} className="justify-between">My Pets</Link></li>
-        <li><Link to={`/MyBookings`}  className="justify-between">My Booking</Link></li>
+        <li><Link to={`/MyBookings`}  className="justify-between">My Booking Reservation </Link></li>
         </> ) : (null)}
         {/* to add ternary operator that show only when user login then will show My Profile, My pet and My booking and Log out pages */}
       </ul>

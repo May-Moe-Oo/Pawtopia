@@ -10,8 +10,8 @@ function UserNavbar({user}) {
             <ul className="menu p-5 w-50 bg-base-100 text-base-content">
                 {user ? ( <>
                 <li><Link to={`/users/profile`} className="justify-between my-3">My Profile</Link></li>
-                <li><Link to={`/pets`} className="justify-between my-3">My Pets Info</Link></li>
-                <li><Link to={`/MyBookings`} className="justify-between my-3">My Booking</Link></li>
+                <li><Link to={`/pets`} className="justify-between my-3">My Pets Informations</Link></li>
+                <li><Link to={`/MyBookings`} className="justify-between my-3">My Booking Reservation</Link></li>
                 </> ) : (null)}
             </ul>
         </div>

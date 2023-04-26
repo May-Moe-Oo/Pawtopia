@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { differenceInCalendarDays, isToday } from 'date-fns';
 
-function BookingForm({user}) {
+function BookingForm({user, selectedRoom, setSelectedRoom}) {
   const navigate = useNavigate();
   const { id } = useParams();
 //! ------------------------------------------------------------------
@@ -17,19 +17,19 @@ function BookingForm({user}) {
     fetchingPet();
   }, []);
 //! ------------------------------------------------------------------
-const [selectedRoom, setSelectedRoom] = useState([]); 
+// const [selectedRoom, setSelectedRoom] = useState([]); 
 
-  useEffect(() => {
-    const fetchingRoom = async (req, res) => {
-      const response = await fetch(`/api/bookings/rooms/${id}`);
-      // console.log("1. Response is "+response);
-      const selectedRoomData = await response.json();
-      console.log("The selectedRoomData Response is "+ JSON.stringify(selectedRoomData));
-      setSelectedRoom(selectedRoomData);
-    };
-    fetchingRoom();
-  }, []);
-  console.log("The selectedRoom is "+ JSON.stringify(selectedRoom));
+//   useEffect(() => {
+//     const fetchingRoom = async (req, res) => {
+//       const response = await fetch(`/api/bookings/rooms/${id}`);
+//       // console.log("1. Response is "+response);
+//       const selectedRoomData = await response.json();
+//       // console.log("The selectedRoomData Response is "+ JSON.stringify(selectedRoomData));
+//       setSelectedRoom(selectedRoomData);
+//     };
+//     fetchingRoom();
+//   }, []);
+  // console.log("The selectedRoom is "+ JSON.stringify(selectedRoom));
 // ! ------------------------------------------------------------------
   const [bookings, setBookings] = useState([]);
   const addRoombookings = (roombooking) => setBookings([roombooking, ...bookings]); // add new room booking 
@@ -84,27 +84,18 @@ const [selectedRoom, setSelectedRoom] = useState([]);
         <div className="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-start">
-              <h1 className="text-3xl font-bold py-2">Room Booking Form</h1> 
-              <br/>
               <div className="form-control w-full max-w-xs">
-                <h1 className="text-xl font-bold" 
-                    name="usersName"
-                    // value={roomBookingData.usersName}
-                    >
-                      Customer Name: {user.name}
-                </h1>
-                <h1 className="hidden">Customer ID: {user._id}</h1>
-                <br/> 
                 <h1 className="text-xl" required >
                     Selected Room: 
                     <span className="text-xl font-bold py-2"> {selectedRoom.roomName}</span>
                 </h1> 
-                <h1 
-                name="roomsName"
-                className="">Room ID: {selectedRoom._id}</h1>
-                
+                <h1 name="roomsName" className="hidden">Room ID: {selectedRoom._id}</h1>
+                {/* <h1> Check In - {selectedRoom.roomCheckIn}</h1>
+                <h1> Check Out - {selectedRoom.roomCheckOut}</h1> */}
                 <br/>
-
+                <h1 className="text-xl font-bold">Customer Name: {user.name}</h1>
+                <h1 className="hidden">Customer ID: {user._id}</h1>
+                <br/> 
                 <div >
                   <span className="label-text">Check In date </span>
                   <input 
@@ -176,15 +167,13 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                 </div>
               </div>
               <br/>
-              <p>terms and conditions (WIP)</p>
+              <Link to={`/bookings/TermsAndConditions`}><button className="btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg">Terms And Conditions</button></Link>
               <br/>
-              <button type="submit" className="btn btn-secondary" disabled={disable} onClick={handleNewRoomBooking} >Confirm Booking</button>
+              <button type="submit" className="btn btn-secondary cursor-pointer" disabled={disable} onClick={handleNewRoomBooking} >Confirm Booking</button>
               <br/>
-              <Link to={`/rooms`}><button className="btn btn-primary">Returns to Rooms</button></Link>
+              <Link to={`/rooms`}><button className="btn btn-primary cursor-pointer">Returns to Rooms</button></Link>
             </div> 
-
           </div>
-          {/* <>CSS to fix - the big box</> */}
       </form>           
   )
 }

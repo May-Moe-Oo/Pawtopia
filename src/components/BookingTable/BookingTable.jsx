@@ -38,18 +38,15 @@ function BookingTable({user}) {
 
     return (
         <div className="overflow-x-auto w-full">
-            <table className="table w-full">
+            <table className="table table-compact w-full ">
                 {/* header row */}
-                {/* {JSON.stringify(bookings[0])} {JSON.stringify(bookings[1])} */}
-                {/* {JSON.stringify(bookings[0].bookingStartDate)} and 
-                {JSON.stringify(bookings[0].bookingEndDate)} */}
                 <thead>
                 <tr>
-                    <th>Pet Name</th>
-                    <th>Room Name</th>
-                    <th>From (date)</th>
-                    <th>To (date)</th>
-                    <th>Remarks</th>
+                    <th className="text-xl font-bold">Pet Name</th>
+                    <th className="text-xl font-bold">Room Name</th>
+                    <th className="text-xl font-bold">From (date)</th>
+                    <th className="text-xl font-bold">To (date)</th>
+                    <th className="text-xl font-bold">Remarks</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -58,16 +55,18 @@ function BookingTable({user}) {
                 <tr>
                     <td>
                     <div className="flex items-center space-x-3">
-                        <div className="font-bold">{roomBooked.petsName?.petName}</div>
+                       <div className="avatar">
+              <div className="mask mask-squircle w-20 h-14">
+                <img src={roomBooked.petsName?.petImageUrl} alt={roomBooked.petsName?.petName} />
+              </div>
+            </div> 
+                        <div className="text-xl font-bold">{roomBooked.petsName?.petName}</div>
                     </div>
                     </td>
-                    <td> {roomBooked.roomsName?.roomName} </td>
-                    <td> {roomBooked.bookingStartDate} </td>
-                    <td> {roomBooked.bookingEndDate} </td>
-                    <td> {roomBooked.remarks} </td>
-                    <th>
-                    {/* <button className="btn btn-ghost btn-xs">details</button> */}
-                    </th>
+                    <td className="text-xl"> {roomBooked.roomsName?.roomName} </td>
+                    <td className="text-xl"> {roomBooked.bookingStartDate} </td>
+                    <td className="text-xl"> {roomBooked.bookingEndDate} </td>
+                    <td className="text-xl"> {roomBooked.remarks} </td>
                     </tr>
                 )): 
                  <tr> <td> No Records found </td> </tr>

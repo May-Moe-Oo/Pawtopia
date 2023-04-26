@@ -20,6 +20,7 @@ import Pets from "../Pets/Pets"
 import PetsCreateForm from "../Pets/PetsCreateForm";
 import PetsEditForm from "../Pets/PetsEditForm";
 import PetInfo from "../Pets/PetsInfo";
+import TermsAndConditions from "../../components/TermsAndConditions/TermsAndConditions";
 import AccessDeniedMsg from "../../components/AccessDeniedMsg/AccessDeniedMsg";
 import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
@@ -45,8 +46,8 @@ function App() {
         <Route path="/users/login" element={<LoginForm setUser={setUser} />} />
         <Route path="/users/logout" element={<LogOutMsg />} />
         <Route path="/users/profile" element={user ? <UserProfile user={user}/>: <AccessDeniedMsg />} /> 
+        <Route path="/bookings/TermsAndConditions" element={<TermsAndConditions />} />
         <Route path="/rooms" element={<Rooms />} />
-
         <Route path="/rooms/:id" element={<RoomsInfo user={user} room={room} setRoom={setRoom}/>} />
         {/* <Route path="/bookings/bookingForm" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} />  */}
         <Route path="/bookings/bookingForm/rooms/:id" element={user ? <NewBooking user={user} /> : <AccessDeniedMsg />} />
