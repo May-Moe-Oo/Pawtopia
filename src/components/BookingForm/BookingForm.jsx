@@ -90,14 +90,14 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                     <span className="text-xl font-bold py-2"> {selectedRoom.roomName}</span>
                 </h1> 
                 <h1 name="roomsName" className="hidden">Room ID: {selectedRoom._id}</h1>
-                {/* <h1> Check In - {selectedRoom.roomCheckIn}</h1>
-                <h1> Check Out - {selectedRoom.roomCheckOut}</h1> */}
+                {/* <h1> Check In From - {selectedRoom.roomCheckIn}</h1>
+                <h1> Check Out By - {selectedRoom.roomCheckOut}</h1> */}
                 <br/>
                 <h1 className="text-xl font-bold">Customer Name: {user.name}</h1>
                 <h1 className="hidden">Customer ID: {user._id}</h1>
                 <br/> 
                 <div >
-                  <span className="label-text">Check In date </span>
+                  <label className="label label-text text-xl">Check In date </label>
                   <input 
                     type="date" 
                     name="bookingStartDate"
@@ -109,7 +109,7 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                 </div>
 
                 <div >
-                  <span className="label-text">Check Out date </span>
+                  <label className="label label-text text-xl">Check Out date </label>
                   <input 
                     type="date" 
                     name="bookingEndDate"
@@ -121,11 +121,11 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                 </div>
 
                 <div>
-                    {numberOfNights === 0 && (
-                    <>
-                      <p>*Error <span> {numberOfNights} night selected</span></p>
-                      <p>A min of 1 night is required.</p>
-                    </>
+                    {numberOfNights <= 0 && (
+                    <div>
+                      <p className='text-xl'>*Error <span> {numberOfNights} night selected</span></p>
+                      <p className='text-xl'>A min of 1 night is required.</p>
+                    </div>
                     )}
 
                   {numberOfNights > 0 && (
@@ -137,24 +137,24 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                   <div>
                     <p className="text-xl"> Total Estimated Price: S${TotalPrice}  </p>
                     <br/>
-                    <span className="label-text">Paw Guest Name</span>
+                    <label className="label label-text text-xl mt-5">Paw Guest Name</label>
                     <select 
                       name="petsName"
                       required
                       value={roomBookingData.petName}
                       onChange={handleChange} 
                       className="select select-error w-full max-w-xs">
-                        <option disabled selected>Select pet staying</option>
+                        <option disabled selected className='text-xl'>Select pet staying</option>
                         {pets.map((p) => (
                           <option 
+                          className='text-xl'
                           value={p._id}>
                             {p.petName}
                           </option>
                         ))}
                     </select>
                     <br/>
-
-                    <label className="label"><span className="label-text">Additional Remarks</span></label>
+                    <label className="label label-text text-xl mt-5">Additional Remarks</label>
                     <textarea 
                     placeholder="Remarks"
                     name="remarks"
@@ -166,12 +166,11 @@ function BookingForm({user, selectedRoom, setSelectedRoom}) {
                   )}
                 </div>
               </div>
+              <Link to={`/bookings/TermsAndConditions`} className="link link-info py-2 text-xl font-bold">Terms And Conditions</Link>
               <br/>
-              <Link to={`/bookings/TermsAndConditions`}><button className="btn btn-warning btn-xs sm:btn-sm md:btn-md lg:btn-lg">Terms And Conditions</button></Link>
+              <button type="submit" className="btn btn-secondary cursor-pointer btn-xs sm:btn-sm md:btn-md lg:btn-lg" disabled={disable} onClick={handleNewRoomBooking} >Confirm Booking</button>
               <br/>
-              <button type="submit" className="btn btn-secondary cursor-pointer" disabled={disable} onClick={handleNewRoomBooking} >Confirm Booking</button>
-              <br/>
-              <Link to={`/rooms`}><button className="btn btn-primary cursor-pointer">Returns to Rooms</button></Link>
+              <Link to={`/rooms`}><button className="btn btn-outline btn-warning cursor-pointer btn-xs sm:btn-sm md:btn-md lg:btn-lg">Returns to Rooms</button></Link>
             </div> 
           </div>
       </form>           

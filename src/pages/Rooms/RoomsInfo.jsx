@@ -51,6 +51,7 @@ function RoomsInfo({user, room, setRoom}) {
                    </Link>
                 </div>
                 <h1 className="my-8 text-xl">If you have any inquiry, feel free to<span className="link-info"><Link to={`/contactus`}> contact us</Link></span>.</h1>
+                <Link to={`/bookings/TermsAndConditions`} className="link link-info py-2 text-xl font-bold">Terms And Conditions</Link>
              </div>
           </div>
         </div> 

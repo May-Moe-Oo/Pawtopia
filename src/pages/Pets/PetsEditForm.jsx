@@ -96,9 +96,9 @@ useEffect(() => {
                     </select>
                     </div>
                     <br/>
-                    <button type="submit" className="btn btn-secondary" onClick={handlePetInfoUpdate}>Update My Pet's Info</button>
+                    <button type="submit" className="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg" onClick={handlePetInfoUpdate}>Update My Pet's Info</button>
                     <br/>
-                    <Link to={`/pets/user/${pet._id}`}><button className="btn btn-secondary" >Cancel</button></Link>
+                    <Link to={`/pets/user/${pet._id}`}><button className="btn btn-active btn-ghost btn-xs sm:btn-sm md:btn-md lg:btn-lg" >Cancel</button></Link>
                     
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div> 

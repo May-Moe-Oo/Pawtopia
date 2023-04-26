@@ -105,7 +105,7 @@ function PetsCreateForm({user, setUser}) {
                     </select>
                     </div>
                     <br/>
-                    <button type="submit" className="btn btn-secondary" onClick={handleAddNewPet}>Add Pet's Info</button>
+                    <button type="submit" className="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg" onClick={handleAddNewPet}>Add Pet's Info</button>
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div> 
                 <br/>
