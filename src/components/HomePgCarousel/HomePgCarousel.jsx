@@ -8,7 +8,7 @@ import spaDay from "../../images/Pets/spaDay.jpg";
 
 function HomePgCarousel() {
     return (
-        <div className="carousel w-full max-w-md text-center">
+        <div className="carousel w-full max-w-3xl text-center">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={petsSpa} className="w-full" alt="Spa"/>
                 <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

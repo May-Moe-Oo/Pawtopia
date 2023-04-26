@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getUser, signUp } from "../../utilities/users-service";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import PhoneInput from 'react-phone-number-input'
+import './signUpForm.css'
 
 function SignUpForm({ setUser }) {
   const navigate = useNavigate();
@@ -24,7 +24,6 @@ function SignUpForm({ setUser }) {
     setError("Password must be at least 5 characters or numbers long.");
     return;
     }
-
     // window.alert(state.email + " Account has been created successfully. Please Login.");
     
     fetch("/api/users", {
@@ -48,7 +47,8 @@ function SignUpForm({ setUser }) {
     console.log(state);
   };
 
-    return (
+  return (
+    <div className="form-container ">
       <form onSubmit={handleSubmit} className="card w-full max-w-xl bg-base-100 shadow-xl mx-20">
         <div className="w-full max-w-xl shadow-2xl bg-base-100">
         <div className="hero-content flex-col lg:flex">
@@ -131,7 +131,8 @@ function SignUpForm({ setUser }) {
 
         </div></div>
       </form>
-    );
+    </div>
+  );
 }
 
 export default SignUpForm;

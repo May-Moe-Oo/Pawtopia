@@ -67,9 +67,6 @@ function LoginForm({setUser}) {
                             required
                             placeholder="Enter your password..." 
                             className="input input-bordered" />
-                            {/* <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label> */}
                         </div>
 
                         <div className="form-control mt-6">
@@ -78,8 +75,8 @@ function LoginForm({setUser}) {
                     </div>
                     <div className="text-center lg:text-left">
                     <p className="py-5 px-5"> If you have a registered account, kindly sign in using your email address. 
-                    <br></br> New Customers, please <span className="link-secondary"> <Link to={`/users/signup`}> create </Link> </span> an account. 
-                    {/* create is a clickable link that lead to signup page  */}
+                    <br></br> New Customers, please <span className="link-secondary"> 
+                    <Link to={`/users/signup`}> create </Link> </span> an account. 
                     </p>
                     </div>
                 </div>

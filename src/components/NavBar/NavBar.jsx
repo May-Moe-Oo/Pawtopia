@@ -29,7 +29,6 @@ function NavBar({user, setUser}) {
   </div>
   <div className="navbar-center hidden lg:flex tabs">
     <ul className="menu menu-horizontal px-4 py-6 ">
-      {/* <li><Link to={`/aboutus`} className="link-secondary tab tab-lg tab-lifted mx-4 text-xl">About Us</Link></li> */}
        <li><Link to={`/aboutus`}>
         <button className="btn btn-outline btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg px-5 mx-10">About Us</button>
         </Link></li>
@@ -48,11 +47,11 @@ function NavBar({user, setUser}) {
         <button className="btn btn-secondary btn-xs sm:btn-sm md:btn-md lg:btn-lg px-2 mx-10">Log Out</button>
         </Link>
     </div>
-  ) : (null)}  {/* only display when user login */}
+  ) : (null)} 
     
   <div className="dropdown dropdown-end">
     <label tabIndex={0} className="btn btn-ghost btn-circle avatar logo-container">
-      <div className="w-20 rounded-full">
+      <div className="rounded-full w-20">
         <img src={logo} alt='Doggies' />
       </div>
     </label>
@@ -67,7 +66,6 @@ function NavBar({user, setUser}) {
         <li><Link to={`/pets`} className="justify-between text-xl">My Pets</Link></li>
         <li><Link to={`/MyBookings`}  className="justify-between text-xl">My Booking Reservation </Link></li>
         </> ) : (null)}
-        {/* to add ternary operator that show only when user login then will show My Profile, My pet and My booking and Log out pages */}
       </ul>
     </div>
 </div>
