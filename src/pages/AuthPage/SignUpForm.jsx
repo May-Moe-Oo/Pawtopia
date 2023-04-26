@@ -35,7 +35,7 @@ function SignUpForm({ setUser }) {
     })
       .then((response) => response.json())
       .then((data) => console.log( data ));
-      console.log("Sign up is submitted");
+      // console.log("Sign up is submitted");
       navigate('/users/login');
   };
 
@@ -44,17 +44,17 @@ function SignUpForm({ setUser }) {
       ...state, 
       [event.target.name]: event.target.value, userRole:"user"
     });
-    console.log(state);
+    // console.log(state);
   };
 
   return (
-    <div className="form-container ">
-      <form onSubmit={handleSubmit} className="card w-full max-w-xl bg-base-100 shadow-xl mx-20">
+    <div className="form-container my-10">
+      <form onSubmit={handleSubmit} className="card place-items-center w-full max-w-xl bg-base-100 shadow-2xl mx-20">
+        <h1 className="card-title text-5xl font-bold text-gray-1000 mb-5 ">Register New Account</h1>
         <div className="w-full max-w-xl shadow-2xl bg-base-100">
-        <div className="hero-content flex-col lg:flex">
-            <h1 className="card-title text-4xl font-bold text-gray-1000 mb-5">Register New Account</h1>
+          
+        <div className="hero-content flex-col lg:flex ">
             {error}
-            
             <div className="form-control w-full max-w-xs">
               <label className="label label-text text-xl text-gray-700 font-bold mb-2"> User Name: </label>
               <input 
@@ -125,7 +125,6 @@ function SignUpForm({ setUser }) {
 
             <div className="text-center lg:text-left">
               <p className="py-5 px-5"> If you have a registered account, kindly <span className="link-secondary"> <Link to={`/users/login`}> Sign in </Link> </span>  using your email address. 
-              {/* create is a clickable link that lead to login page  */}
               </p>
             </div>
 

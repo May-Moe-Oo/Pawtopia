@@ -2,7 +2,7 @@ import React from 'react';
 import comfy from '../../images/rooms/comfy.png';
 import vacation from '../../images/rooms/vacation.jpg';
 import playground from '../../images/rooms/playground.jpg';
-import Dailywalk from '../../images/rooms/dailywalk.png';
+import Dailywalk from '../../images/rooms/Dailywalk.png';
 import ThreePoolDogs from '../../images/rooms/ThreePoolDogs.jpg';
 
 function RoomPgCarousel() {
