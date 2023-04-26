@@ -1,19 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import HomePgCarousel from "../../components/HomePgCarousel/HomePgCarousel";
-// import HomeBackground from "../../images/HomeBackground.jpg";
-// import PinkHomeBackground from "../../images/PinkHomeBackground.jpg";
 
 function HomePage() {
 
-//     const style = {
-//     backgroundImage: `url(${PinkHomeBackground})`
-//   };
-
     return (
-        <div className="flex flex-col w-full text-center justify-center" 
-        // style={style}
-        >
+        <div className="flex flex-col w-full text-center justify-center" >
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="grid place-items-center"><HomePgCarousel /></div>
             <div className="grid h-20 card  rounded-box place-items-center">

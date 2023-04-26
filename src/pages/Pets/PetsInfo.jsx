@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import UserNavbar from "../../components/UserNavbar/UserNavbar";
+import './petInfo.css';
 
 //! show pet's infor, edit and delete button - WIP
 
@@ -40,8 +41,9 @@ function PetsInfo({user}) {
   };
 if (Object.keys(pet).length === 0) {
     return (
-      <> <p>No Pet Information has been recorded yet</p> 
-      </>
+      <div className=''> 
+      <p>No Pet Information has been recorded yet</p> 
+      </div>
     );
   } else {
     return (
@@ -49,11 +51,10 @@ if (Object.keys(pet).length === 0) {
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-start">
         <div className="card lg:card-side bg-base-100 shadow-xl">
-            <h2>All My Paw Buddies's information (to delete later)</h2>
-            <figure> <img height="20"src={pet.petImageUrl} alt={pet.petName}/> </figure>
+            <figure> <img className="image-wrapper" height="20"src={pet.petImageUrl} alt={pet.petName}/> </figure>
             <div className="card-body">
-                <h2 className="card-title">Pet Name: {pet.petName}</h2>
-                 <p>Other Pet's info</p>
+                <h1 className="card-title">{pet.petName}</h1>
+                <p>{pet.petGender}, {pet.petBreed}</p>
                     <div className="card-actions justify-end">
                      <Link to={`/pets/${pet._id}/edit`}> 
                      <button className="btn btn-primary btn-xs sm:btn-sm md:btn-md lg:btn-lg">Edit</button>

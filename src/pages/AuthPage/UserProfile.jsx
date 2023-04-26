@@ -17,7 +17,7 @@ function UserProfile({user, setUser}) {
                     {/*  Page content here  */}
                     {user && 
                     <>
-                    <h2 className="text-4xl font-bold py-2">Welcome {user.name}</h2> <br/>
+                    <h2 className="text-4xl font-bold py-2 mt-14 mb-10">Welcome {user.name}</h2> <br/>
                     <img src={Koby} alt="Koby" className="h-96 rounded-lg shadow-2xl" />
                     </>
                     }

@@ -54,7 +54,7 @@ function PetsCreateForm({user, setUser}) {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-start">
                     {/*  Page content here  */}
-                    <h1 className="text-3xl font-bold py-2">Record My Paw Buddy's information!</h1> <br/>
+                    <h1 className="text-3xl font-bold py-2 mt-14">Record My Paw Buddy's information!</h1> <br/>
                     <div className="form-control w-full max-w-xs">
                     
                     {/* <h1 > {JSON.stringify(user._id)}</h1>  */}
