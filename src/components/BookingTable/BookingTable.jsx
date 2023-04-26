@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
+// import "./BookingTable.css";
 
 function BookingTable({user}) {
     //! show the list of room 
@@ -37,8 +38,8 @@ function BookingTable({user}) {
 
 
     return (
-        <div className="overflow-x-auto w-full">
-            <table className="table table-compact w-full ">
+        <div className="flex justify-content-center overflow-x-auto w-full">
+            <table className="table table-compact">
                 {/* header row */}
                 <thead>
                 <tr>
