@@ -23,14 +23,14 @@ const [selectedRoom, setSelectedRoom] = useState([]);
   useEffect(() => {
     const fetchingRoom = async (req, res) => {
       const response = await fetch(`/api/bookings/rooms/${id}`);
-      console.log("1. Response is "+response);
+      // console.log("1. Response is "+response);
       const selectedRoomData = await response.json();
-      console.log("2. selectedRoomData Response is "+ selectedRoomData);
+      console.log("The selectedRoomData Response is "+ JSON.stringify(selectedRoomData));
       setSelectedRoom(selectedRoomData);
     };
     fetchingRoom();
   }, []);
-  console.log("The selectedRoom is "+ selectedRoom);
+  console.log("The selectedRoom is "+ JSON.stringify(selectedRoom));
 // ! ------------------------------------------------------------------
   const [bookings, setBookings] = useState([]);
   const addRoombookings = (roombooking) => setBookings([roombooking, ...bookings]); // add new room booking 
@@ -56,7 +56,7 @@ const [selectedRoom, setSelectedRoom] = useState([]);
     event.preventDefault();
     SetRoomBookingData({ ...roomBookingData, 
       [event.target.name]: event.target.value});
-    // console.log("After chg data is" + roomBookingData);
+    console.log("After chg data is" + JSON.stringify(roomBookingData));
   }
 //! ------------------------------------------------------------------
   const handleNewRoomBooking = async (event) => {
@@ -70,14 +70,14 @@ const [selectedRoom, setSelectedRoom] = useState([]);
       });
       const roombooking = await response.json();
       addRoombookings(roombooking);
-    // console.log("New Room Booking has been Made!");
+    console.log("New Room Booking has been Made!");
     navigate('/MyBookings'); // MyBookings, show all the booking made by this user
   };
 //! ------------------------------------------------------------------
   function handleSubmitBooking(event) {
     event.preventDefault();
     alert(JSON.stringify(roomBookingData));
-    // console.log("Room Booking was Submitted!");
+    console.log("Room Booking was Submitted!");
   };
 //! ------------------------------------------------------------------
    let numberOfNights = 0;
@@ -98,19 +98,26 @@ const [selectedRoom, setSelectedRoom] = useState([]);
               <div className="form-control w-full max-w-xs">
                 <h1 className="text-xl font-bold" 
                     name="usersName"
-                    value={roomBookingData.usersName}>
+                    value={roomBookingData.usersName}
+                    >
                       Customer Name: {user.name}
                 </h1>
                 <h1 className="hidden">Customer ID: {user._id}</h1>
                 <br/> 
                 <h1 className="text-xl" 
-                    name="roomsName"
+                    // name="roomsName"
                     required
-                    value={roomBookingData.roomName}
+                    // value={roomBookingData.roomName}
                     >
-                    Selected Room: {selectedRoom.roomName}
+                    Selected Room: 
+                    <span className="text-xl font-bold py-2"> {selectedRoom.roomName}</span>
                 </h1> 
-                <h1 className="">Room ID: {roomBookingData._id}</h1>
+                {/* to fix here, need to have the id as the value of roomBookingData.roomsName */}
+                <h1 
+                name="roomsName"
+                value={roomBookingData.roomName}
+                className="">Room ID: {selectedRoom._id}</h1>
+                
                 <br/>
                     {/* to insert the selected room name here */}
                 {/* <span className="label-text">Type of Room:  </span>
@@ -150,13 +157,18 @@ const [selectedRoom, setSelectedRoom] = useState([]);
                     onChange={handleChange}
                     className="border my-2 p-2 p-x rounded-2xl w-full max-w-xs"/>
                 </div>
-                    <br/>
+
                 <div>
-                  <p >Numbers of nights selected: 
-                    {numberOfNights > 0 && (
-                    <span> {numberOfNights} nights</span>
+                    {numberOfNights === 0 && (
+                    <>
+                      <p>*Error <span> {numberOfNights} night selected</span></p>
+                      <p>A min of 1 night is required.</p>
+                    </>
                     )}
-                  </p>
+
+                  {numberOfNights > 0 && (
+                  <p className="my-3">Numbers of nights selected: <span> {numberOfNights} nights</span> </p>
+                  )}
                   <br/>
  
                   {numberOfNights > 0 && (
@@ -207,3 +219,6 @@ const [selectedRoom, setSelectedRoom] = useState([]);
 }
 
 export default BookingForm;
+
+
+// https://stackoverflow.com/questions/25159330/how-to-convert-an-iso-date-to-the-date-format-yyyy-mm-dd
