@@ -14,7 +14,7 @@ https://pawtopia.onrender.com
 ## Technologies Used
 
 1. React
-2. daisyui
+2. Tailwind CSS - daisy UI
 3. Node.js
 4. JavaScript 
 5. Express Framework
@@ -149,6 +149,7 @@ As a Registered User, they can :-
 
 
 ## Resources
-Wireframe: <a href="https://docs.google.com/presentation/d/1AcKpQyDoZZqyJrQi4rGSM_cjBEus7xHQtElyVP6fDjI/edit?usp=sharing">Google Slides</a> <br />
-daisy UI: <a href="https://daisyui.com/components/"> <br />
-Date formating: <a href="https://stackoverflow.com/questions/25159330/how-to-convert-an-iso-date-to-the-date-format-yyyy-mm-dd">
+
+Wireframe: <a href="https://docs.google.com/presentation/d/1AcKpQyDoZZqyJrQi4rGSM_cjBEus7xHQtElyVP6fDjI/edit?usp=sharing">Google Slides</a><br />
+Tailwind CSS - Daisy UI: <a href="https://daisyui.com/components/">Daisy UI</a><br />
+Date formating: <a href="https://stackoverflow.com/questions/25159330/how-to-convert-an-iso-date-to-the-date-format-yyyy-mm-dd">Stack overflow</a><br />
