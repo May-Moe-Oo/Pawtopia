@@ -144,8 +144,9 @@ As a Registered User, they can :-
 ## Future Features 
 
 1. Admin dashboard
-2. Mailing system 
-3. Filter Bookings
+2. Form validation
+3. Mailing system 
+4. Filter Bookings
 
 
 ## Resources
