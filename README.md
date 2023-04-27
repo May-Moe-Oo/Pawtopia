@@ -122,7 +122,7 @@ As a Registered User, they can :-
 
 - Room Booking Reservation  
 
-![image](https://user-images.githubusercontent.com/122252464/234736979-3d726ec2-0087-477b-9014-55842b3654d3.png)
+![image](https://user-images.githubusercontent.com/122252464/234785278-f59bc392-23aa-4d1f-88b6-cd7f399a6ef8.png)
 ![image](https://user-images.githubusercontent.com/122252464/234737248-bba375b2-72e1-4a50-a79f-2bd37d50c4ca.png)
 ![image](https://user-images.githubusercontent.com/122252464/234737309-14883006-600f-4062-8a2f-3856a2fe0489.png)
 ![image](https://user-images.githubusercontent.com/122252464/234737551-e109f312-df3b-443f-a365-00831c63f071.png)
@@ -139,6 +139,8 @@ As a Registered User, they can :-
 - Fetching data and using of Params 
 - Working with dates
 - Working with daisyUi
+
+Initially wanted to make a booking app however I hadn't thought about the avalibility of rooms and numbers of room limits. Thus, it has been changed to reservation app, where user make the room reservation. In future, I plan to make an admin dashboard where admin is to approve or reject the user's reservation. Revise the user bookings reservation table and user an emailing system to inform the user of the status of the room booking reservation.  
 
 
 ## Future Features 
